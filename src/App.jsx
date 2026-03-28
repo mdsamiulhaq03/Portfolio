@@ -18,44 +18,44 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 // Per-page SEO metadata
 const pageMeta = {
   "/": {
-    title: "Niladri Chatterjee - Full Stack Developer | MERN Stack Expert",
+    title: "MD Samiul Haque - Full Stack Developer | MERN Stack Expert",
     description:
-      "Niladri Chatterjee — Full Stack Developer specializing in MERN stack, React.js, Node.js, Next.js and TypeScript. Based in Kolkata, India.",
+      "MD Samiul Haque — Full Stack Developer specializing in MERN stack, React.js, Node.js, Next.js and TypeScript. Based in Kolkata, India.",
   },
   "/about": {
-    title: "About - Niladri Chatterjee | Full Stack Developer",
+    title: "About - MD Samiul Haque | Full Stack Developer",
     description:
-      "Learn about Niladri Chatterjee — B.Tech Computer Science graduate, Full Stack Developer with 3+ internships and 10+ projects. Based in Kolkata, India.",
+      "Learn about MD Samiul Haque — B.Tech Computer Science graduate, Full Stack Developer with 3+ internships and 10+ projects. Based in Kolkata, India.",
   },
   "/projects": {
-    title: "Projects - Niladri Chatterjee | Full Stack Developer Portfolio",
+    title: "Projects - MD Samiul Haque | Full Stack Developer Portfolio",
     description:
-      "Explore full-stack web projects built by Niladri Chatterjee using React.js, Node.js, MongoDB, Next.js and TypeScript.",
+      "Explore full-stack web projects built by MD Samiul Haque using React.js, Node.js, MongoDB, Next.js and TypeScript.",
   },
   "/skills": {
-    title: "Skills - Niladri Chatterjee | React, Node.js, MERN Stack",
+    title: "Skills - MD Samiul Haque | React, Node.js, MERN Stack",
     description:
-      "Technical skills of Niladri Chatterjee — React.js, Node.js, Express, MongoDB, Next.js, TypeScript, AWS, Docker and more.",
+      "Technical skills of MD Samiul Haque — React.js, Node.js, Express, MongoDB, Next.js, TypeScript, AWS, Docker and more.",
   },
   "/experience": {
-    title: "Experience - Niladri Chatterjee | Full Stack Developer",
+    title: "Experience - MD Samiul Haque | Full Stack Developer",
     description:
-      "Professional experience of Niladri Chatterjee including 3+ internships in full stack web development.",
+      "Professional experience of MD Samiul Haque including 3+ internships in full stack web development.",
   },
   "/education": {
-    title: "Education - Niladri Chatterjee | B.Tech Computer Science",
+    title: "Education - MD Samiul Haque | B.Tech Computer Science",
     description:
-      "Educational background of Niladri Chatterjee — B.Tech in Computer Science with 8.48 CGPA.",
+      "Educational background of MD Samiul Haque — B.Tech in Computer Science with 8.48 CGPA.",
   },
   "/certificates": {
-    title: "Certificates - Niladri Chatterjee | Developer Certifications",
+    title: "Certificates - MD Samiul Haque | Developer Certifications",
     description:
-      "Professional certifications and achievements of Niladri Chatterjee in web development and cloud technologies.",
+      "Professional certifications and achievements of MD Samiul Haque in web development and cloud technologies.",
   },
   "/contact": {
-    title: "Contact - Niladri Chatterjee | Hire a Full Stack Developer",
+    title: "Contact - MD Samiul Haque | Hire a Full Stack Developer",
     description:
-      "Get in touch with Niladri Chatterjee for freelance projects, job opportunities or collaborations. Based in Kolkata, India.",
+      "Get in touch with MD Samiul Haque for freelance projects, job opportunities or collaborations. Based in Kolkata, India.",
   },
 };
 
@@ -65,9 +65,9 @@ function SEOUpdater() {
 
   useEffect(() => {
     const meta = pageMeta[location.pathname] || {
-      title: "Niladri Chatterjee - Full Stack Developer",
+      title: "MD Samiul Haque - Full Stack Developer",
       description:
-        "Portfolio of Niladri Chatterjee — Full Stack Developer specializing in MERN stack and modern web technologies.",
+        "Portfolio of MD Samiul Haque — Full Stack Developer specializing in MERN stack and modern web technologies.",
     };
 
     document.title = meta.title;
@@ -85,14 +85,14 @@ function SEOUpdater() {
     if (ogUrl)
       ogUrl.setAttribute(
         "content",
-        `https://niladri1.vercel.app${location.pathname}`,
+        `portfolio-five-rosy-pzsm9uct65.vercel.app${location.pathname}`,
       );
 
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical)
       canonical.setAttribute(
         "href",
-        `https://niladri1.vercel.app${location.pathname}`,
+        `portfolio-five-rosy-pzsm9uct65.vercel.app${location.pathname}`,
       );
   }, [location]);
 
