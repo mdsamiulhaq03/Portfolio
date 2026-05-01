@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Calendar, ExternalLink } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
-import typescriptPdf from "@/assets/files/certificates_pdf/TypeScript.pdf";
-import awsEcsPdf from "@/assets/files/certificates_pdf/aws_ecs.pdf";
-import javascriptPdf from "@/assets/files/certificates_pdf/javascript.pdf";
-import dockerPdf from "@/assets/files/certificates_pdf/docker_fundamentals.pdf";
-import pythonPdf from "@/assets/files/certificates_pdf/python.pdf";
-import cybersecurityPdf from "@/assets/files/certificates_pdf/cybersecurity_virtual_program.pdf";
 
 const certificates = [
   // {

@@ -45,7 +45,6 @@ const skills = [
       { name: "JavaScript", icon: <JavaScriptLogo /> },
       { name: "TypeScript", icon: <TypeScriptLogo /> },
       { name: "Python", icon: <PythonLogo /> },
-      { name: "C++", icon: <CppLogo /> },
     ],
   },
   {
@@ -84,7 +83,6 @@ const skills = [
       { name: "Git", icon: <GitLogo /> },
       { name: "GitHub", icon: <GitLogo /> },
       { name: "Vercel", icon: <VercelLogo /> },
-      { name: "Render", icon: <RenderLogo /> },
     ],
   },
   {
@@ -93,8 +91,6 @@ const skills = [
     items: [
       { name: "VS Code", icon: <VSCodeLogo /> },
       { name: "Git Desktop", icon: <GitLogo /> },
-      { name: "Compass", icon: <MongoDBLogo /> },
-      { name: "Postman", icon: <PostmanLogo /> },
     ],
   },
   {

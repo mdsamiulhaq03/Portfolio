@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Code2, Briefcase, GraduationCap, Globe } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 import profileImg from "@/assets/profile/profile.jpg";
-import cvPdf from "@/assets/files/cv_pdf/Niladri_Chatterjee(CV).pdf";
+import cvPdf from "@/assets/files/cv_pdf/Samiul_Haque_CV.pdf";
 
 const About = () => {
   const achievements = [
@@ -82,7 +82,7 @@ const About = () => {
               <ul className="list-none space-y-3">
                 {[
                   "Based in Bangladesh",
-                  "B.Tech in Computer Science",
+                  "Bsc in Computer Science ",
                   "CGPA: 3.56",
                 ].map((fact) => (
                   <motion.li

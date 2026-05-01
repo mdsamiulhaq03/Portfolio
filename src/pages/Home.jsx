@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import useSWR from "swr";
-import cvPdf from "@/assets/files/cv_pdf/Niladri_Chatterjee(CV).pdf"; //Change CV
+import cvPdf from "@/assets/files/cv_pdf/Samiul_Haque_CV.pdf"; //Change CV
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
