@@ -8,17 +8,17 @@ import cvPdf from "@/assets/files/cv_pdf/Samiul_Haque_CV.pdf";
 const About = () => {
   const achievements = [
     {
-      icon: <Code2 className="w-6 h-6" />,
+      icon: Code2,
       title: "5+ Projects",
       description: "Completed full-stack web applications",
     },
     {
-      icon: <Briefcase className="w-6 h-6" />,
-      title: "1 Internships",
+      icon: Briefcase,
+      title: "1 Internship",
       description: "Professional work experience",
     },
     {
-      icon: <GraduationCap className="w-6 h-6" />,
+      icon: GraduationCap,
       title: "3.56 CGPA",
       description: "Academic excellence",
     },
@@ -35,13 +35,20 @@ const About = () => {
 
   return (
     <div className="min-h-screen pt-20 px-4 max-w-4xl mx-auto pb-20">
+      {/* Title */}
       <ScrollAnimation>
-        <motion.h2 className="text-4xl font-bold mb-8 gradient-text">
+        <motion.h2
+          className="text-4xl font-bold mb-8 gradient-text"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
           About Me
         </motion.h2>
       </ScrollAnimation>
 
+      {/* Main Section */}
       <div className="grid md:grid-cols-2 gap-8">
+        {/* Profile Image */}
         <ScrollAnimation>
           <div className="aspect-square overflow-hidden rounded-2xl">
             <img
@@ -52,61 +59,65 @@ const About = () => {
           </div>
         </ScrollAnimation>
 
-        <ScrollAnimation className="space-y-6">
-          <div className="space-y-4">
-            <p className="text-gray-300 leading-relaxed">
-              Hi! I'm a passionate full-stack developer with expertise in
-              building modern web applications. My journey in tech started
-              during my college years, where I discovered my love for creating
-              innovative solutions through code.
-            </p>
-            <p className="text-gray-300 leading-relaxed">
-              I completed my Bsc in Computer Science, maintaining a strong
-              academic record while actively engaging in real-world projects and
-              internships. This blend of theoretical knowledge and practical
-              experience has shaped my approach to problem-solving and software
-              development.
-            </p>
-            <p className="text-gray-300 leading-relaxed">
-              I specialize in Html, CSS, JavaScript,React, Node.js, and modern
-              web technologies, with a keen interest in creating performant and
-              user-friendly applications.
-            </p>
-          </div>
+        {/* Content */}
+        <ScrollAnimation>
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <p className="text-gray-300 leading-relaxed">
+                Hi! I'm a passionate full-stack developer with expertise in
+                building modern web applications. My journey in tech started
+                during my college years, where I discovered my love for creating
+                innovative solutions through code.
+              </p>
 
-          <ScrollAnimation>
+              <p className="text-gray-300 leading-relaxed">
+                I completed my BSc in Computer Science, maintaining a strong
+                academic record while actively engaging in real-world projects
+                and internships. This blend of theoretical knowledge and
+                practical experience has shaped my approach to problem-solving
+                and software development.
+              </p>
+
+              <p className="text-gray-300 leading-relaxed">
+                I specialize in HTML, CSS, JavaScript, React, Node.js, and
+                modern web technologies, with a keen interest in building
+                performant and user-friendly applications.
+              </p>
+            </div>
+
+            {/* Quick Facts */}
             <div className="pt-4">
               <h3 className="text-2xl font-semibold mb-4 gradient-text">
                 Quick Facts
               </h3>
-              <ul className="list-none space-y-3">
+
+              <ul className="space-y-3">
                 {[
                   "Based in Bangladesh",
-                  "Bsc in Computer Science ",
+                  "BSc in Computer Science",
                   "CGPA: 3.56",
                 ].map((fact) => (
-                  <motion.li
+                  <li
                     key={fact}
-                    className="flex items-center space-x-2 text-gray-300"
+                    className="flex items-center gap-2 text-gray-300"
                   >
                     <span className="w-2 h-2 bg-white rounded-full" />
-                    <span>{fact}</span>
-                  </motion.li>
+                    {fact}
+                  </li>
                 ))}
               </ul>
             </div>
-          </ScrollAnimation>
 
-          <ScrollAnimation>
-            <div className="flex justify-start space-x-4">
+            {/* Buttons */}
+            <div className="flex gap-4 pt-4">
               <a
                 href={cvPdf}
-                target="_blank"
-                rel="noopener noreferrer"
+                download
                 className="px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-100 transition-colors"
               >
                 Download CV
               </a>
+
               <Link
                 to="/skills"
                 className="px-6 py-3 bg-white/10 text-white rounded-full font-medium hover:bg-white/20 transition-colors"
@@ -114,24 +125,24 @@ const About = () => {
                 My Skills
               </Link>
             </div>
-          </ScrollAnimation>
+          </div>
         </ScrollAnimation>
       </div>
 
+      {/* Achievements */}
       <ScrollAnimation>
         <div className="mt-16">
           <h3 className="text-2xl font-semibold mb-8 gradient-text">
             Achievements
           </h3>
+
           <div className="grid md:grid-cols-3 gap-6">
-            {achievements.map((achievement) => (
-              <ScrollAnimation key={achievement.title}>
-                <div className="bg-white/5 p-6 rounded-xl backdrop-blur-sm">
-                  <div className="text-white mb-4">{achievement.icon}</div>
-                  <h4 className="text-xl font-semibold mb-2">
-                    {achievement.title}
-                  </h4>
-                  <p className="text-gray-400">{achievement.description}</p>
+            {achievements.map((item) => (
+              <ScrollAnimation key={item.title}>
+                <div className="bg-white/5 p-6 rounded-xl backdrop-blur-sm hover:bg-white/10 transition">
+                  <item.icon className="w-6 h-6 text-white mb-4" />
+                  <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
+                  <p className="text-gray-400">{item.description}</p>
                 </div>
               </ScrollAnimation>
             ))}
@@ -139,15 +150,17 @@ const About = () => {
         </div>
       </ScrollAnimation>
 
+      {/* Interests */}
       <ScrollAnimation>
         <div className="mt-16">
           <h3 className="text-2xl font-semibold mb-8 gradient-text">
             Areas of Interest
           </h3>
+
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {interests.map((interest) => (
               <ScrollAnimation key={interest}>
-                <div className="bg-white/5 p-4 rounded-xl backdrop-blur-sm flex items-center gap-3">
+                <div className="bg-white/5 p-4 rounded-xl backdrop-blur-sm flex items-center gap-3 hover:bg-white/10 transition">
                   <Globe className="w-5 h-5 text-gray-400" />
                   <span className="text-gray-300">{interest}</span>
                 </div>

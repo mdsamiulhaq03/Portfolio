@@ -19,22 +19,21 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const Home = () => {
   const [copied, setCopied] = useState(false);
   const email = "samiultahsin@gmail.com";
-  const whatsappNumber = "+880175871514";
+  const whatsappNumber = "880175871514";
 
   const { data: githubData } = useSWR(
-    "https://github.com/mdsamiulhaq03",
+    "https://api.github.com/users/mdsamiulhaq03",
     fetcher,
     {
       revalidateOnFocus: false,
       dedupingInterval: 60000,
-      shouldRetryOnError: true,
-      errorRetryCount: 3,
     },
   );
 
   function formatRepoCount(count) {
-    if (count < 5) return count.toString();
-    return `${Math.floor(count / 5) * 5}+`;
+    if (count < 10) return count.toString();
+    if (count < 100) return `${Math.floor(count / 10) * 10}+`;
+    return `${Math.floor(count / 100) * 100}+`;
   }
 
   const githubRepos = githubData?.public_repos || 0;

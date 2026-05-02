@@ -9,8 +9,9 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
+import schoolImg from "@/assets/education/school_img.webp";
+import universityImg from "@/assets/education/University_img.jpg";
 import collegeImg from "@/assets/education/college_img.jpg";
-import schoolImg from "@/assets/education/school_img.jpg";
 import bTechPdf from "@/assets/files/education_pdf/B Tech.pdf";
 import hsMarkSheetPdf from "@/assets/files/education_pdf/HS MARK SHEET.pdf";
 
@@ -22,7 +23,7 @@ const Education = () => {
       duration: "May 2021 - July 2025",
       degree: "Bachelor in Computer Science and Engineering (BSc)",
       grade: "CGPA: 3.56 (89%)",
-      image: collegeImg,
+      image: universityImg,
       resultUrl: bTechPdf,
       coursework: [
         "Software Development",
@@ -44,7 +45,7 @@ const Education = () => {
       duration: "June 2018 - July 2020",
       degree: "Higher School Secondary (Hsc)",
       grade: "Percentage: 100%",
-      image: schoolImg,
+      image: collegeImg,
       resultUrl: hsMarkSheetPdf,
       subjects: [
         "Physics",

@@ -35,6 +35,8 @@ import {
   UbuntuLogo,
   LinuxLogo,
   CppLogo,
+  Html5,
+  Css3,
 } from "@/components/TechLogos";
 
 const skills = [
@@ -45,6 +47,8 @@ const skills = [
       { name: "JavaScript", icon: <JavaScriptLogo /> },
       { name: "TypeScript", icon: <TypeScriptLogo /> },
       { name: "Python", icon: <PythonLogo /> },
+      { name: "HTML5", icon: <Html5 /> },
+      { name: "CSS", icon: <Css3 /> },
     ],
   },
   {
