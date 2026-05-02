@@ -9,6 +9,8 @@ import {
   Terminal,
   Wrench,
   Users,
+  BrainCircuit,
+  Eye,
 } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 import {
@@ -44,6 +46,14 @@ import {
   Android,
   MachineLearning,
   PyTorchLogo,
+  TensorFlow,
+  KerasLogo,
+  Pandas,
+  Numpy,
+  SkLearn,
+  GitHub,
+  Figma,
+  Jupyter,
 } from "@/components/TechLogos";
 
 const skills = [
@@ -94,16 +104,8 @@ const skills = [
     icon: <GitLogo />,
     items: [
       { name: "Git", icon: <GitLogo /> },
-      { name: "GitHub", icon: <GitLogo /> },
+      { name: "GitHub", icon: <GitHub /> },
       { name: "Vercel", icon: <VercelLogo /> },
-    ],
-  },
-  {
-    category: "Machine Learning & Deep Learning: ",
-    icon: <Brain className="w-6 h-6" />,
-    items: [
-      { name: "Python", icon: <PyTorchLogo /> },
-      { name: "Render", icon: <RenderLogo /> },
     ],
   },
   {
@@ -112,8 +114,30 @@ const skills = [
     items: [
       { name: "VS Code", icon: <VSCodeLogo /> },
       { name: "Git Desktop", icon: <GitLogo /> },
+      { name: "Figma", icon: <Figma /> },
+      { name: "Jupyter", icon: <Jupyter /> },
     ],
   },
+
+  {
+    category: "Machine Learning & Deep Learning",
+    icon: <BrainCircuit className="w-6 h-6" />,
+    items: [
+      { name: "Python", icon: <PyTorchLogo /> },
+      { name: "TensorFlow", icon: <TensorFlow /> },
+      { name: "Keras", icon: <KerasLogo /> },
+    ],
+  },
+  {
+    category: "Data Analysis & Visualization ",
+    icon: <Eye className="w-6 h-6" />,
+    items: [
+      { name: "Pandas", icon: <Pandas /> },
+      { name: "Numpy", icon: <Numpy /> },
+      { name: "Scikit-Learn", icon: <SkLearn /> },
+    ],
+  },
+
   {
     category: "Operating Systems",
     icon: <Terminal className="w-6 h-6" />,

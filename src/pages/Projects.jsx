@@ -1,64 +1,18 @@
 import { Github, ExternalLink } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
-import project1 from "@/assets/projects_img/project-1.png";
-import project2 from "@/assets/projects_img/project-2.png";
-import project3 from "@/assets/projects_img/project-3.png";
-import project4 from "@/assets/projects_img/project-4.png";
+
+import FlavorBot from "@/assets/projects_img/FlavorBot.png";
 
 const projects = [
-  // {
-  //   title: "E-Mail Spam Detector",
-  //   description:
-  //     "AI-powered Gmail client that detects spam, summarises emails, and lets you chat with your inbox — built with React, Node.js & Gemini API.",
-  //   image: project4,
-  //   github: "https://github.com/niladri-1/EMail-Spam-Detector",
-  //   live: "https://spam-detector1.vercel.app",
-  //   tags: [
-  //     "MongoDB",
-  //     "Express",
-  //     "React",
-  //     "Node",
-  //     "JavaScript",
-  //     "Gmail API",
-  //     "OAuth2",
-  //   ],
-  // },
-  // {
-  //   title: "Book Store",
-  //   description:
-  //     "A modern Book Management System built with the MERN stack (React 19 & Tailwind 4.0). Features secure JWT authentication, protected routes, and full CRUD functionality.",
-  //   image: project3,
-  //   github: "https://github.com/niladri-1/Bookstore-Auth-MERN",
-  //   live: "https://curd-auth-app.vercel.app",
-  //   tags: [
-  //     "MongoDB",
-  //     "Express",
-  //     "React",
-  //     "Node",
-  //     "Tailwind",
-  //     "JWT",
-  //     "Bcrypt",
-  //     "REST API",
-  //   ],
-  // },
-  // {
-  //   title: "NetScan-Pro",
-  //   description:
-  //     "Bash-based network scanning tool that provides live host discovery, port scanning, traceroute, and ping tests, featuring visually appealing ASCII banners and 80+ star at GitHub",
-  //   image: project2,
-  //   github: "https://github.com/niladri-1/NetScan-Pro",
-  //   live: "",
-  //   tags: ["Linux", "Bash", "Networking", "Monitoring", "NMAP", "Scripting"],
-  // },
-  // {
-  //   title: "Student Portfolio",
-  //   description:
-  //     "A professional portfolio template for engineering students. Easy to set up, fully customizable, and perfect for showcasing projects and skills.",
-  //   image: project1,
-  //   github: "https://github.com/niladri-1/Frontend-develope-portfolio",
-  //   live: "https://techfolio1.vercel.app",
-  //   tags: ["Next", "Tailwind CSS", "TypeScript", "ThreeJS", "Responsive"],
-  // },
+  {
+    title: "FlavorBot AI — Smart Recipe Generator",
+    description:
+      "FlavorBot AI is a React + Vite app that generates recipes from your ingredients using AI, with a clean, fast, and responsive interface.",
+    image: FlavorBot,
+    github: "https://github.com/mdsamiulhaq03/flavorbot",
+    live: "https://flavorbot-five.vercel.app",
+    tags: ["Vite", "React", "Tailwind", "JavaScript", "GROQ API"],
+  },
 ];
 
 const Projects = () => {
