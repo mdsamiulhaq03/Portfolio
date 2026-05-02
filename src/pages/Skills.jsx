@@ -37,6 +37,13 @@ import {
   CppLogo,
   Html5,
   Css3,
+  Bootstrap,
+  MySQL,
+  Firebase,
+  SQLite,
+  Android,
+  MachineLearning,
+  PyTorchLogo,
 } from "@/components/TechLogos";
 
 const skills = [
@@ -59,6 +66,7 @@ const skills = [
       { name: "Next.js", icon: <NextjsLogo /> },
       { name: "Tailwind", icon: <TailwindLogo /> },
       { name: "Redux", icon: <ReduxLogo /> },
+      { name: "Bootstrap", icon: <Bootstrap /> },
     ],
   },
   {
@@ -76,8 +84,9 @@ const skills = [
     icon: <Database className="w-6 h-6" />,
     items: [
       { name: "MongoDB", icon: <MongoDBLogo /> },
-      { name: "Cloudinary", icon: <Cloud className="w-4 h-4" /> },
-      { name: "AWS", icon: <AWSLogo /> },
+      { name: "MySQL", icon: <MySQL /> },
+      { name: "Firebase", icon: <Firebase /> },
+      { name: "SQLite", icon: <SQLite /> },
     ],
   },
   {
@@ -87,6 +96,14 @@ const skills = [
       { name: "Git", icon: <GitLogo /> },
       { name: "GitHub", icon: <GitLogo /> },
       { name: "Vercel", icon: <VercelLogo /> },
+    ],
+  },
+  {
+    category: "Machine Learning & Deep Learning: ",
+    icon: <Brain className="w-6 h-6" />,
+    items: [
+      { name: "Python", icon: <PyTorchLogo /> },
+      { name: "Render", icon: <RenderLogo /> },
     ],
   },
   {
@@ -104,6 +121,7 @@ const skills = [
       { name: "Windows", icon: <WindowsLogo className="w-4 h-4" /> },
       { name: "Ubuntu", icon: <UbuntuLogo className="w-4 h-4" /> },
       { name: "Linux", icon: <LinuxLogo className="w-4 h-4" /> },
+      { name: "Android", icon: <Android className="w-4 h-4" /> },
     ],
   },
   {
