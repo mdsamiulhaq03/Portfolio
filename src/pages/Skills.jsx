@@ -54,6 +54,7 @@ import {
   GitHub,
   Figma,
   Jupyter,
+  Appwrite,
 } from "@/components/TechLogos";
 
 const skills = [
@@ -94,7 +95,7 @@ const skills = [
     icon: <Database className="w-6 h-6" />,
     items: [
       { name: "MongoDB", icon: <MongoDBLogo /> },
-      { name: "MySQL", icon: <MySQL /> },
+      { name: "Appwrite", icon: <Appwrite /> },
       { name: "Firebase", icon: <Firebase /> },
       { name: "SQLite", icon: <SQLite /> },
     ],

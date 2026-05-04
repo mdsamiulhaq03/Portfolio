@@ -20,12 +20,12 @@ const pageMeta = {
   "/": {
     title: "MD Samiul Haque - Full Stack Developer | MERN Stack Expert",
     description:
-      "MD Samiul Haque — Full Stack Developer specializing in MERN stack, React.js, Node.js, Next.js and TypeScript. Based in Kolkata, India.",
+      "MD Samiul Haque — Full Stack Developer specializing in MERN stack, React.js, Node.js, Next.js and TypeScript. Based in Bogura, Bangladesh.",
   },
   "/about": {
     title: "About - MD Samiul Haque | Full Stack Developer",
     description:
-      "Learn about MD Samiul Haque — B.Tech Computer Science graduate, Full Stack Developer with 3+ internships and 10+ projects. Based in Kolkata, India.",
+      "Learn about MD Samiul Haque — BSc Computer Science graduate, Full Stack Developer with 3+ internships and 10+ projects. Based in Bogura, Bangladesh.",
   },
   "/projects": {
     title: "Projects - MD Samiul Haque | Full Stack Developer Portfolio",
@@ -43,9 +43,9 @@ const pageMeta = {
       "Professional experience of MD Samiul Haque including 3+ internships in full stack web development.",
   },
   "/education": {
-    title: "Education - MD Samiul Haque | B.Tech Computer Science",
+    title: "Education - MD Samiul Haque | BSc Computer Science",
     description:
-      "Educational background of MD Samiul Haque — B.Tech in Computer Science with 8.48 CGPA.",
+      "Educational background of MD Samiul Haque — BSc in Computer Science with 3.56 CGPA.",
   },
   "/certificates": {
     title: "Certificates - MD Samiul Haque | Developer Certifications",
@@ -55,7 +55,7 @@ const pageMeta = {
   "/contact": {
     title: "Contact - MD Samiul Haque | Hire a Full Stack Developer",
     description:
-      "Get in touch with MD Samiul Haque for freelance projects, job opportunities or collaborations. Based in Kolkata, India.",
+      "Get in touch with MD Samiul Haque for freelance projects, job opportunities or collaborations. Based in Bogura, Bangladesh.",
   },
 };
 
