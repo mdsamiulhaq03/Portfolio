@@ -2,7 +2,7 @@
 
 A modern, animated personal portfolio built with React, Vite, and Tailwind CSS. Features a 3D Spline scene on the homepage, scroll animations, and a dark minimal UI.
 
-**Live site:** [mdsamiulhaque.vercel.app](https://mdsamiulhaque.vercel.app) *(update with your actual URL)*
+**Live site:** [mdsamiulhaque.vercel.app](https://samiul-haq-portfolio.vercel.app/)
 
 ---
 
@@ -122,9 +122,7 @@ Open `src/pages/Projects.jsx` and add an entry to the `projects` array:
 
 ---
 
-## Deployment
 
-The project is configured for deployment on [Vercel](https://vercel.com). Push to `main` and Vercel will build automatically using `npm run build` with the output in `dist/`.
 
 ---
 
