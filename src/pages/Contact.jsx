@@ -11,6 +11,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { useState } from "react";
+import { CONTACT_INFO } from "@/config/contact";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -51,24 +52,24 @@ const Contact = () => {
     {
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
-      value: "samiultahsin2001@gmail.com",
-      link: "mailto:samiultahsin2001@gmail.com",
+      value: CONTACT_INFO.email,
+      link: `mailto:${CONTACT_INFO.email}`,
     },
     {
       icon: <Phone className="w-5 h-5" />,
       label: "Phone",
-      value: "+8801758715154",
-      link: "tel:+8801758715154",
+      value: CONTACT_INFO.phone,
+      link: `tel:${CONTACT_INFO.phone}`,
     },
     {
       icon: <MapPin className="w-5 h-5" />,
       label: "Location",
-      value: "Bogura Bangladesh",
+      value: CONTACT_INFO.location,
     },
     {
       icon: <Clock className="w-5 h-5" />,
       label: "Time Zone",
-      value: "BST (UTC+06:00)",
+      value: CONTACT_INFO.timezone,
     },
   ];
 
@@ -76,17 +77,17 @@ const Contact = () => {
     {
       icon: <Github className="w-5 h-5" />,
       label: "GitHub",
-      link: "https://github.com/mdsamiulhaq03",
+      link: CONTACT_INFO.github,
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
       label: "LinkedIn",
-      link: "https://www.linkedin.com/in/md-samiul-haq/",
+      link: CONTACT_INFO.linkedin,
     },
     {
       icon: <MessageCircle className="w-5 h-5" />,
       label: "WhatsApp",
-      link: "https://wa.me/+01758715154",
+      link: `https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, "")}`,
     },
   ];
 

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Code2, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { CONTACT_INFO } from "@/config/contact";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -34,7 +35,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-sm text-gray-400">
-              Web Devolper based in Bogura,Bangladesh.
+              Web Developer based in Bogura, Bangladesh.
             </p>
           </div>
 
@@ -44,22 +45,22 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:samiultahsin2001@gmail.com"
+                  href={`mailto:${CONTACT_INFO.email}`}
                   className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"
-                  aria-label="Email Niladri Chatterjee"
+                  aria-label={`Email ${CONTACT_INFO.email}`}
                 >
                   <Mail className="w-4 h-4" aria-hidden="true" />
-                  samiultahsin2001@gmail.com
+                  {CONTACT_INFO.email}
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+880175871514"
+                  href={`tel:${CONTACT_INFO.phone}`}
                   className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"
-                  aria-label="Call Niladri Chatterjee"
+                  aria-label={`Call ${CONTACT_INFO.phone}`}
                 >
                   <Phone className="w-4 h-4" aria-hidden="true" />
-                  +880175871514
+                  {CONTACT_INFO.phone}
                 </a>
               </li>
             </ul>
@@ -110,7 +111,7 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-white">Social</h3>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/niladri-1"
+                href={CONTACT_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -119,7 +120,7 @@ const Footer = () => {
                 <Github className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
-                href="https://linkedin.com/in/niladri1"
+                href={CONTACT_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -128,7 +129,7 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
-                href="mailto:samiultahsin2001@gmail.com"
+                href={`mailto:${CONTACT_INFO.email}`}
                 className="text-gray-400 hover:text-white transition-colors"
                 aria-label="Email"
               >

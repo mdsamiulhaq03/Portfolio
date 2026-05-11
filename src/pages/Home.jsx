@@ -12,14 +12,15 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import useSWR from "swr";
-import cvPdf from "@/assets/files/cv_pdf/Samiul_Haque_CV.pdf"; //Change CV
+import cvPdf from "@/assets/files/cv_pdf/Samiul_Haque_CV.pdf";
+import { CONTACT_INFO } from "@/config/contact";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Home = () => {
   const [copied, setCopied] = useState(false);
-  const email = "samiultahsin@gmail.com";
-  const whatsappNumber = "880175871514";
+  const email = CONTACT_INFO.email;
+  const whatsappNumber = CONTACT_INFO.whatsapp.replace(/\D/g, "");
 
   const { data: githubData } = useSWR(
     "https://api.github.com/users/mdsamiulhaq03",

@@ -1,10 +1,34 @@
-import { Github, ExternalLink, Star } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 
 import FlavorBot from "@/assets/projects_img/FlavorBot.png";
 import CineScope from "@/assets/projects_img/CineScope.png";
+import CVAnalyzer from "@/assets/projects_img/CVAnalyzer.png";
+import HawaSomachar from "@/assets/projects_img/HawaSmachar.png";
+
 
 const projects = [
+    {
+title: "CVAnalyzer AI",
+description:
+  "AI-powered CV analysis platform — upload your CV and get instant ATS scoring, skill gap detection, and a professionally rewritten version. No sign-up required. Built with Next.js 16, Groq (Llama 3.3 70B), and a full shadcn + Spline 3D UI.",
+image: CVAnalyzer,
+github: "https://github.com/mdsamiulhaq03/CVAnalyzer",
+live: "https://cv-tracker-three.vercel.app/",
+tags: ["Next.js", "TypeScript", "Groq", "Llama 3.3", "Tailwind", "shadcn/ui", "Spline", "Recharts", "Framer Motion"],
+liveStatus: true,
+  },
+
+  {
+title: "Hawa Somachar 🌤️",
+description:
+  "A beautifully animated real-time weather app built with Next.js 16, featuring live forecasts, interactive maps, air quality tracking, and smooth scroll animations. Powered by OpenWeatherMap with dark/light mode and GPS location support.",
+image: HawaSomachar,
+github: "https://github.com/mdsamiulhaq03/WeatherApp",
+live: "https://hawasamchar.vercel.app/",
+tags: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "MapLibre GL", "OpenWeatherMap"],
+liveStatus: true,
+  },
   {
     title: "FlavorBot AI — Smart Recipe Generator",
     description:

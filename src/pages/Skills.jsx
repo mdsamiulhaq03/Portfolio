@@ -124,13 +124,13 @@ const skills = [
     category: "Machine Learning & Deep Learning",
     icon: <BrainCircuit className="w-6 h-6" />,
     items: [
-      { name: "Python", icon: <PyTorchLogo /> },
+      { name: "PyTorch", icon: <PyTorchLogo /> },
       { name: "TensorFlow", icon: <TensorFlow /> },
       { name: "Keras", icon: <KerasLogo /> },
     ],
   },
   {
-    category: "Data Analysis & Visualization ",
+    category: "Data Analysis & Visualization",
     icon: <Eye className="w-6 h-6" />,
     items: [
       { name: "Pandas", icon: <Pandas /> },

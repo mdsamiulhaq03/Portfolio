@@ -85,14 +85,14 @@ function SEOUpdater() {
     if (ogUrl)
       ogUrl.setAttribute(
         "content",
-        `portfolio-five-rosy-pzsm9uct65.vercel.app${location.pathname}`,
+        `https://portfolio-five-rosy-pzsm9uct65.vercel.app${location.pathname}`,
       );
 
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical)
       canonical.setAttribute(
         "href",
-        `portfolio-five-rosy-pzsm9uct65.vercel.app${location.pathname}`,
+        `https://portfolio-five-rosy-pzsm9uct65.vercel.app${location.pathname}`,
       );
   }, [location]);
 
