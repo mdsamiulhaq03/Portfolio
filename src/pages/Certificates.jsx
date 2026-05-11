@@ -3,11 +3,11 @@ import { Award, Calendar, ExternalLink } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 
 import typescriptPdf from "@/assets/files/certificates_pdf/TypeScript.pdf";
-import awsEcsPdf from "@/assets/files/certificates_pdf/aws_ecs.pdf";
+
 import javascriptPdf from "@/assets/files/certificates_pdf/javascript.pdf";
-import dockerPdf from "@/assets/files/certificates_pdf/docker_fundamentals.pdf";
+
 import pythonPdf from "@/assets/files/certificates_pdf/python.pdf";
-import cybersecurityPdf from "@/assets/files/certificates_pdf/cybersecurity_virtual_program.pdf";
+
 
 const certificates = [
   {
@@ -24,15 +24,7 @@ const certificates = [
       "Backend Development",
     ],
   },
-  {
-    title: "AWS ECS Deployment and Management",
-    issuer: "KodeKloud",
-    date: "20th March 2025",
-    link: awsEcsPdf,
-    description:
-      "Covers deploying and managing containers on AWS using ECS, including cluster management, load balancing, auto-scaling, and CI/CD integration.",
-    skills: ["AWS ECS", "Cloud Computing", "DevOps", "CI/CD"],
-  },
+ 
   {
     title: "JavaScript Programming",
     issuer: "HackerRank",
@@ -42,15 +34,7 @@ const certificates = [
       "Validates JavaScript fundamentals, including syntax, functions, and problem-solving.",
     skills: ["JavaScript", "ES6", "Asynchronous Programming"],
   },
-  {
-    title: "Docker Fundamentals",
-    issuer: "KodeKloud",
-    date: "18th February 2025",
-    link: dockerPdf,
-    description:
-      "Teaches containerization, networking, security, and CI/CD with Docker.",
-    skills: ["Docker", "Containerization", "CI/CD"],
-  },
+  
   {
     title: "Python Programming",
     issuer: "HackerRank",
@@ -60,15 +44,7 @@ const certificates = [
       "Validates Python basics, including loops, functions, and data structures.",
     skills: ["Python", "Functions", "Data Structures"],
   },
-  {
-    title: "Cybersecurity Virtual Program",
-    issuer: "Forage",
-    date: "10 Jul 2023",
-    link: cybersecurityPdf,
-    description:
-      "Focuses on cybersecurity threats, vulnerabilities, and risk mitigation.",
-    skills: ["Cybersecurity", "Threat Mitigation", "Ransomware"],
-  },
+  
 ];
 
 const Certificates = () => {
@@ -93,23 +69,32 @@ const Certificates = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm hover:bg-gray-800/70 transition-all group border border-white/5"
+              className="group flex flex-col border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-colors duration-200"
             >
-              <h3 className="text-xl font-semibold mb-2">{cert.title}</h3>
-              <div className="text-gray-400 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-lg">{cert.issuer}</span>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>{cert.date}</span>
-                  </div>
+              {/* Header */}
+              <div className="flex items-start justify-between gap-3 px-5 py-4 border-b border-white/10 bg-white/5">
+                <h3 className="text-sm font-semibold text-white/80 uppercase tracking-widest leading-snug">
+                  {cert.title}
+                </h3>
+                <div className="flex items-center gap-1.5 text-white/30 text-xs flex-shrink-0 mt-0.5">
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>{cert.date}</span>
                 </div>
-                <p className="text-gray-300 line-clamp-2">{cert.description}</p>
-                <div className="flex flex-wrap gap-2 mt-4">
+              </div>
+
+              {/* Body */}
+              <div className="flex flex-col flex-grow p-5 gap-4">
+                <span className="text-xs font-medium text-white/40 uppercase tracking-widest">
+                  {cert.issuer}
+                </span>
+                <p className="text-sm text-white/50 line-clamp-2 leading-relaxed">
+                  {cert.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
                   {cert.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2 py-1 text-sm bg-white/10 rounded-full"
+                      className="text-xs px-2.5 py-1 border border-white/10 rounded-full text-white/40"
                     >
                       {skill}
                     </span>
@@ -119,11 +104,11 @@ const Certificates = () => {
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mt-4 group-hover:translate-x-2 transition-transform"
-                  whileHover={{ scale: 1.05 }}
+                  className="inline-flex items-center gap-2 text-xs font-medium text-white/40 hover:text-white border border-white/10 hover:border-white/20 rounded-md px-4 py-2 w-fit transition-colors"
+                  whileHover={{ scale: 1.02 }}
                 >
                   View Certificate
-                  <ExternalLink className="w-4 h-4" />
+                  <ExternalLink className="w-3.5 h-3.5" />
                 </motion.a>
               </div>
             </motion.div>

@@ -7,13 +7,13 @@ const searchData = [
     title: 'Home',
     description: 'Go to the welcome page',
     path: '/',
-    keywords: ['home', 'cv', 'resume', 'start', 'welcome', 'portfolio', 'niladri', 'niladri chatterjee', 'niladri1', 'software developer', 'full stack developer', 'mern stack', 'web developer'],
+    keywords: ['home', 'cv', 'resume', 'start', 'welcome', 'portfolio', 'samiul haq', 'samiul haque', 'samiul', 'haque', 'software developer', 'full stack developer', 'mern stack', 'web developer'],
   },
   {
     title: 'About',
     description: 'Learn more about me and my background',
     path: '/about',
-    keywords: ['about', 'background', 'education', 'bio', 'profile', 'cv', 'resume', 'niladri', 'chatterjee', 'full stack developer', 'software engineer', 'web developer'],
+    keywords: ['about', 'background', 'education', 'bio', 'profile', 'cv', 'resume', 'samiul', 'haq', 'full stack developer', 'software engineer', 'web developer'],
   },
   {
     title: 'Education',
@@ -112,11 +112,11 @@ const SearchDialog = () => {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center space-x-2 px-3 py-1.5 text-gray-400 hover:text-white transition-colors bg-white/15 rounded-lg hover:bg-white/10"
+        className="flex items-center gap-2 px-3 py-1.5 border border-white/10 rounded text-white/30 hover:text-white hover:border-white/20 transition-colors"
       >
-        <Search className="w-4 h-4" />
-        <span className="text-sm hidden sm:block">Search ...</span>
-        <span className="hidden md:flex items-center space-x-1 px-1.5 py-0.5 text-xs bg-white/10 rounded">
+        <Search className="w-3.5 h-3.5" />
+        <span className="text-xs uppercase tracking-widest hidden sm:block">Search</span>
+        <span className="hidden md:flex items-center gap-1 px-1.5 py-0.5 border border-white/10 rounded text-xs text-white/20">
           <Command className="w-3 h-3" />
           <span>K</span>
         </span>
@@ -125,59 +125,66 @@ const SearchDialog = () => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
-      <div className="min-h-screen px-4 text-center">
-        <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
-          onClick={() => setIsOpen(false)}
-        />
-        <div className="inline-block w-full max-w-2xl mt-24 text-left align-middle transition-all transform">
-          <div className="relative bg-gray-900 rounded-xl shadow-2xl">
-            <div className="flex items-center px-4 border-b border-white/10">
-              <Search className="w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search pages..."
-                className="w-full px-4 py-4 text-white bg-transparent border-0 focus:outline-none focus:ring-0"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                autoFocus
-              />
-              <div className="flex items-center space-x-1 px-1.5 py-0.5 text-xs text-gray-400 bg-white/10 rounded">
-                <span>Esc</span>
-              </div>
-            </div>
+    <div className="fixed inset-0 z-50">
+      <div
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={() => setIsOpen(false)}
+      />
+      <div className="relative flex justify-center pt-24 px-4">
+        <div className="w-full max-w-xl border border-white/10 rounded-lg overflow-hidden bg-black/90 backdrop-blur-xl shadow-2xl">
 
-            <div className="max-h-[60vh] overflow-y-auto">
-              {results.length === 0 ? (
-                <div className="p-4 text-sm text-gray-400">No results found.</div>
-              ) : (
-                <div className="py-2">
-                  {results.map((result, index) => (
-                    <button
-                      key={result.path}
-                      className={`w-full px-4 py-3 text-left hover:bg-white/5 flex items-center justify-between ${
-                        index === selectedIndex ? 'bg-white/10' : ''
-                      }`}
-                      onClick={() => {
-                        navigate(result.path)
-                        setIsOpen(false)
-                      }}
-                    >
-                      <div>
-                        <div className="text-white font-medium">{result.title}</div>
-                        <div className="text-sm text-gray-400">{result.description}</div>
+          {/* Search input */}
+          <div className="flex items-center gap-3 px-5 py-4 border-b border-white/10 bg-white/5">
+            <Search className="w-4 h-4 text-white/30 flex-shrink-0" />
+            <input
+              type="text"
+              placeholder="Search pages..."
+              className="flex-1 text-sm text-white/80 bg-transparent outline-none placeholder:text-white/20 placeholder:uppercase placeholder:tracking-widest"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              autoFocus
+            />
+            <span className="text-xs text-white/20 border border-white/10 rounded px-1.5 py-0.5 uppercase tracking-widest">
+              Esc
+            </span>
+          </div>
+
+          {/* Results */}
+          <div className="max-h-[60vh] overflow-y-auto">
+            {results.length === 0 ? (
+              <div className="px-5 py-8 text-xs text-white/20 uppercase tracking-widest text-center">
+                No results found
+              </div>
+            ) : (
+              <div className="divide-y divide-white/[0.07]">
+                {results.map((result, index) => (
+                  <button
+                    key={result.path}
+                    className={`w-full flex items-center justify-between px-5 py-3 text-left transition-colors ${
+                      index === selectedIndex
+                        ? 'bg-white/5 text-white'
+                        : 'text-white/40 hover:bg-white/[0.03] hover:text-white'
+                    }`}
+                    onClick={() => {
+                      navigate(result.path)
+                      setIsOpen(false)
+                    }}
+                  >
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-widest mb-0.5">
+                        {result.title}
                       </div>
-                      <ArrowRight
-                        className={`w-4 h-4 text-gray-400 ${
-                          index === selectedIndex ? 'opacity-100' : 'opacity-0'
-                        }`}
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+                      <div className="text-xs text-white/30">{result.description}</div>
+                    </div>
+                    <ArrowRight
+                      className={`w-3.5 h-3.5 flex-shrink-0 transition-opacity ${
+                        index === selectedIndex ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

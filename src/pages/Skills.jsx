@@ -176,28 +176,29 @@ const Skills = () => {
         </p>
       </ScrollAnimation>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {skills.map((skillGroup) => (
           <ScrollAnimation key={skillGroup.category}>
-            <div className="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm hover:bg-gray-800/70 transition-all border border-white/5">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="p-2 bg-white/10 rounded-lg">
-                  {skillGroup.icon}
-                </div>
-                <h3 className="text-lg font-semibold">{skillGroup.category}</h3>
+            <div className="flex flex-col border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-colors duration-200">
+              {/* Header */}
+              <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10 bg-white/5">
+                <span className="text-white/60">{skillGroup.icon}</span>
+                <h3 className="text-sm font-semibold text-white/80 uppercase tracking-widest">
+                  {skillGroup.category}
+                </h3>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+
+              {/* Skill grid */}
+              <div className="grid grid-cols-2 divide-x divide-y divide-white/[0.07]">
                 {skillGroup.items.map((skill) => (
                   <div
                     key={skill.name}
-                    className="bg-gray-700/50 px-4 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-white/10 transition-all group"
+                    className="flex items-center gap-2.5 px-4 py-3 text-white/40 hover:text-white hover:bg-white/5 transition-colors group"
                   >
-                    <div className="text-gray-400 group-hover:text-white transition-colors">
+                    <span className="w-4 h-4 flex-shrink-0 group-hover:scale-110 transition-transform">
                       {skill.icon}
-                    </div>
-                    <span className="text-gray-400 group-hover:text-white transition-colors text-sm">
-                      {skill.name}
                     </span>
+                    <span className="text-xs font-medium">{skill.name}</span>
                   </div>
                 ))}
               </div>

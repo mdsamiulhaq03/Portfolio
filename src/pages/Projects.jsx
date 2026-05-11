@@ -64,46 +64,33 @@ const Projects = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((project) => (
           <ScrollAnimation key={project.title}>
-            <div
-              className="group flex flex-col h-full rounded-2xl overflow-hidden border transition-all duration-200"
-              style={{ background: "#0f0f0f", borderColor: "#2a2a2a" }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#444")}
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.borderColor = "#2a2a2a")
-              }
-            >
+            <div className="group flex flex-col h-full border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-colors duration-200">
               {/* Image */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-44 object-cover brightness-90"
+                className="w-full h-44 object-cover brightness-75 group-hover:brightness-90 transition-all duration-200"
               />
 
-              {/* Body */}
-              <div className="flex flex-col flex-grow p-5 gap-3">
-                {/* Status */}
-                <div className="flex items-center justify-end">
-                  <span
-                    className="text-xs font-medium px-2.5 py-0.5 rounded-full"
-                    style={{
-                      background: project.liveStatus ? "#1a2e1a" : "#2a2010",
-                      color: project.liveStatus ? "#4ade80" : "#fbbf24",
-                      border: `0.5px solid ${
-                        project.liveStatus ? "#2a4a2a" : "#4a3a10"
-                      }`,
-                    }}
-                  >
-                    {project.liveStatus ? "Live" : "In progress"}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-sm font-medium text-neutral-100 leading-snug">
+              {/* Header */}
+              <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-white/5">
+                <h3 className="text-sm font-semibold text-white/80 uppercase tracking-widest leading-snug">
                   {project.title}
                 </h3>
+                <span
+                  className={`text-xs font-medium px-2.5 py-0.5 border rounded-full flex-shrink-0 ml-2 ${
+                    project.liveStatus
+                      ? "text-green-400/70 border-green-400/20"
+                      : "text-yellow-400/70 border-yellow-400/20"
+                  }`}
+                >
+                  {project.liveStatus ? "Live" : "In progress"}
+                </span>
+              </div>
 
-                {/* Description */}
-                <p className="text-xs text-neutral-500 leading-relaxed flex-grow">
+              {/* Body */}
+              <div className="flex flex-col flex-grow p-5 gap-4">
+                <p className="text-xs text-white/40 leading-relaxed flex-grow">
                   {project.description}
                 </p>
 
@@ -112,11 +99,7 @@ const Projects = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2.5 py-0.5 rounded-full text-neutral-500"
-                      style={{
-                        background: "#161616",
-                        border: "0.5px solid #2a2a2a",
-                      }}
+                      className="text-xs px-2.5 py-0.5 border border-white/10 rounded-full text-white/30"
                     >
                       {tag}
                     </span>
@@ -124,39 +107,25 @@ const Projects = () => {
                 </div>
 
                 {/* Footer */}
-                <div
-                  className="flex items-center justify-between pt-3 mt-1"
-                  style={{ borderTop: "0.5px solid #1e1e1e" }}
-                >
-                  <div className="flex gap-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs text-neutral-600 hover:text-neutral-300 transition-colors px-2.5 py-1.5 rounded-md"
-                      style={{
-                        background: "#111",
-                        border: "0.5px solid #222",
-                      }}
-                    >
-                      <Github className="w-3 h-3" />
-                      Code
-                    </a>
-
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs text-neutral-600 hover:text-neutral-300 transition-colors px-2.5 py-1.5 rounded-md"
-                      style={{
-                        background: "#111",
-                        border: "0.5px solid #222",
-                      }}
-                    >
-                      <ExternalLink className="w-3 h-3" />
-                      Live
-                    </a>
-                  </div>
+                <div className="flex gap-2 pt-3 border-t border-white/[0.07]">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/20 px-3 py-1.5 rounded-md transition-colors"
+                  >
+                    <Github className="w-3 h-3" />
+                    Code
+                  </a>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/20 px-3 py-1.5 rounded-md transition-colors"
+                  >
+                    <ExternalLink className="w-3 h-3" />
+                    Live
+                  </a>
                 </div>
               </div>
             </div>

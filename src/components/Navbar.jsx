@@ -21,88 +21,93 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed top-0 w-full z-50"
+      className="fixed top-0 w-full z-50 border-b border-white/10 bg-black/70 backdrop-blur-xl"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="relative">
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-xl" />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link
+            to="/"
+            className="flex items-center gap-2.5 text-white/70 hover:text-white transition-colors"
+          >
+            <Code2 className="w-5 h-5" aria-hidden="true" />
+            <span className="text-base font-semibold uppercase tracking-widest">
+              Samiul
+            </span>
+          </Link>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
-              <Code2 className="w-8 h-8 text-white" aria-hidden="true" />
-              <span className="text-xl font-bold text-white">Samiul</span>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
-              <SearchDialog />
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`nav-link ${location.pathname === link.path ? "bg-white/15 backdrop-blur-sm" : ""}`}
-                  aria-current={
-                    location.pathname === link.path ? "page" : undefined
-                  }
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
-            {/* Mobile header right section */}
-            <div className="flex md:hidden items-center space-x-2">
-              <SearchDialog />
-              <button
-                className="p-2 text-gray-400 hover:text-white transition-colors"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                aria-expanded={isMenuOpen}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-1">
+            <SearchDialog />
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                aria-current={
+                  location.pathname === link.path ? "page" : undefined
+                }
+                className={`px-3 py-1.5 text-base uppercase tracking-widest rounded transition-colors duration-150 ${
+                  location.pathname === link.path
+                    ? "border border-white/10 bg-white/5 text-white/80"
+                    : "text-white/30 hover:text-white"
+                }`}
               >
-                {isMenuOpen ? (
-                  <X className="w-6 h-6" aria-hidden="true" />
-                ) : (
-                  <Menu className="w-6 h-6" aria-hidden="true" />
-                )}
-              </button>
-            </div>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Mobile right */}
+          <div className="flex md:hidden items-center gap-2">
+            <SearchDialog />
+            <button
+              className="p-1.5 border border-white/10 rounded text-white/40 hover:text-white hover:border-white/20 transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? (
+                <X className="w-4 h-4" aria-hidden="true" />
+              ) : (
+                <Menu className="w-4 h-4" aria-hidden="true" />
+              )}
+            </button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <motion.div
-            className="md:hidden absolute top-full left-0 right-0 bg-black/50 backdrop-blur-xl"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div className="px-4 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`block px-3 py-2 text-gray-400 hover:text-white transition-colors ${
-                    location.pathname === link.path
-                      ? "bg-white/10 backdrop-blur-sm text-white"
-                      : ""
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                  aria-current={
-                    location.pathname === link.path ? "page" : undefined
-                  }
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
       </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <motion.div
+          className="md:hidden border-t border-white/10 bg-black/80 backdrop-blur-xl"
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.15 }}
+        >
+          <div className="divide-y divide-white/[0.07]">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsMenuOpen(false)}
+                aria-current={
+                  location.pathname === link.path ? "page" : undefined
+                }
+                className={`flex items-center px-5 py-3 text-base uppercase tracking-widest transition-colors ${
+                  location.pathname === link.path
+                    ? "bg-white/5 text-white/80"
+                    : "text-white/30 hover:text-white hover:bg-white/[0.03]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+      )}
     </motion.nav>
   );
 };

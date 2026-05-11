@@ -12,8 +12,7 @@ import { ScrollAnimation } from "@/components/ScrollAnimation";
 import schoolImg from "@/assets/education/school_img.webp";
 import universityImg from "@/assets/education/University_img.jpg";
 import collegeImg from "@/assets/education/college_img.jpg";
-import bTechPdf from "@/assets/files/education_pdf/B Tech.pdf";
-import hsMarkSheetPdf from "@/assets/files/education_pdf/HS MARK SHEET.pdf";
+
 
 const Education = () => {
   const educationData = [
@@ -24,7 +23,7 @@ const Education = () => {
       degree: "Bachelor in Computer Science and Engineering (BSc)",
       grade: "CGPA: 3.56 (89%)",
       image: universityImg,
-      resultUrl: bTechPdf,
+      resultUrl: null,
       coursework: [
         "Software Development",
         "DSA",
@@ -46,7 +45,7 @@ const Education = () => {
       degree: "Higher School Secondary (Hsc)",
       grade: "Percentage: 100%",
       image: collegeImg,
-      resultUrl: hsMarkSheetPdf,
+      resultUrl: null,
       subjects: [
         "Physics",
         "Chemistry",
@@ -66,7 +65,7 @@ const Education = () => {
       degree: "Secondary School Certificate(SSC)",
       grade: "Percentage: 98%",
       image: schoolImg,
-      resultUrl: hsMarkSheetPdf,
+      resultUrl: null,
       subjects: [
         "Physics",
         "Chemistry",
@@ -85,105 +84,104 @@ const Education = () => {
     <div className="min-h-screen pt-20 px-4 max-w-6xl mx-auto pb-20">
       <ScrollAnimation>
         <motion.div
-          className="flex items-center gap-3 mb-12"
+          className="flex items-center gap-3 mb-10"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <GraduationCap className="w-8 h-8" />
-          <h2 className="text-4xl font-bold gradient-text">Education</h2>
+          <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8" />
+          <h2 className="text-3xl sm:text-4xl font-bold gradient-text">Education</h2>
         </motion.div>
       </ScrollAnimation>
 
-      <div className="space-y-12">
+      <div className="space-y-6">
         {educationData.map((edu, index) => (
           <ScrollAnimation key={edu.school}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="relative bg-gray-800/50 rounded-xl overflow-hidden backdrop-blur-sm hover:bg-gray-800/70 transition-all"
+              className="flex flex-col border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-colors duration-200"
             >
-              <div className="absolute top-0 right-0 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-bl-xl flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-gray-300" />
-                <span className="text-gray-300">{edu.duration}</span>
+              {/* Header */}
+              <div className="flex items-center justify-between gap-4 px-5 py-4 border-b border-white/10 bg-white/5">
+                <div className="flex items-center gap-3">
+                  <GraduationCap className="w-4 h-4 text-white/40 flex-shrink-0" />
+                  <h3 className="text-sm font-semibold text-white/80 uppercase tracking-widest">
+                    {edu.school}
+                  </h3>
+                </div>
+                <div className="flex items-center gap-1.5 text-white/30 text-xs flex-shrink-0">
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>{edu.duration}</span>
+                </div>
               </div>
 
-              <div className="grid md:grid-cols-[350px,1fr]">
-                {/* Left Column - Image */}
-                <div className="relative h-96 md:h-full">
+              <div className="grid md:grid-cols-[300px,1fr]">
+                {/* Image */}
+                <div className="relative h-56 md:h-full border-b md:border-b-0 md:border-r border-white/[0.07]">
                   <img
                     src={edu.image}
                     alt={edu.school}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover brightness-50"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold mb-2">{edu.school}</h3>
-                      <div className="flex items-center gap-2 text-gray-300 mb-1">
-                        <MapPin className="w-4 h-4" />
+                  <div className="absolute inset-0 flex items-end p-5">
+                    <div className="space-y-1.5">
+                      <div className="flex items-center gap-2 text-white/50 text-xs">
+                        <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
                         <span>{edu.location}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-300">
-                        <Award className="w-4 h-4" />
+                      <div className="flex items-center gap-2 text-white/50 text-xs">
+                        <Award className="w-3.5 h-3.5 flex-shrink-0" />
                         <span>{edu.grade}</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Right Column - Content */}
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <BookOpen className="w-5 h-5 text-gray-400" />
-                    <h4 className="text-lg font-semibold">{edu.degree}</h4>
+                {/* Content */}
+                <div className="flex flex-col divide-y divide-white/[0.07]">
+                  {/* Degree */}
+                  <div className="flex items-center gap-3 px-5 py-3 text-white/50">
+                    <BookOpen className="w-4 h-4 flex-shrink-0 text-white/30" />
+                    <span className="text-xs uppercase tracking-widest">{edu.degree}</span>
                   </div>
 
-                  <div className="flex items-start gap-2 text-gray-300 mb-6">
-                    <FileText className="w-5 h-5 mt-1 flex-shrink-0" />
-                    <p className="text-sm leading-relaxed">{edu.description}</p>
+                  {/* Description */}
+                  <div className="flex items-start gap-3 px-5 py-4">
+                    <FileText className="w-4 h-4 mt-0.5 flex-shrink-0 text-white/20" />
+                    <p className="text-xs text-white/40 leading-relaxed">{edu.description}</p>
                   </div>
 
-                  {edu.coursework && (
-                    <div className="mb-6">
-                      <div className="flex flex-wrap gap-2">
-                        {edu.coursework.map((course) => (
-                          <span
-                            key={course}
-                            className="px-3 py-1 bg-white/10 rounded-full text-sm"
-                          >
-                            {course}
-                          </span>
-                        ))}
-                      </div>
+                  {/* Coursework / Subjects */}
+                  {(edu.coursework || edu.subjects) && (
+                    <div className="flex flex-wrap gap-2 px-5 py-4">
+                      {(edu.coursework || edu.subjects).map((item) => (
+                        <span
+                          key={item}
+                          className="text-xs px-2.5 py-1 border border-white/10 rounded-full text-white/30"
+                        >
+                          {item}
+                        </span>
+                      ))}
                     </div>
                   )}
 
-                  {edu.subjects && (
-                    <div className="mb-6">
-                      <div className="flex flex-wrap gap-2">
-                        {edu.subjects.map((subject) => (
-                          <span
-                            key={subject}
-                            className="px-3 py-1 bg-white/10 rounded-full text-sm"
-                          >
-                            {subject}
-                          </span>
-                        ))}
-                      </div>
+                  {/* Footer */}
+                  {edu.resultUrl && (
+                    <div className="px-5 py-4">
+                      <motion.a
+                        href={edu.resultUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white/40 hover:text-white border border-white/10 hover:border-white/20 rounded-md transition-colors"
+                        whileHover={{ scale: 1.02 }}
+                      >
+                        View Result
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </motion.a>
                     </div>
                   )}
-
-                  <motion.a
-                    href={edu.resultUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/10 hover:bg-white/20 rounded-lg transition-all text-sm font-medium"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    View Result
-                    <ExternalLink className="w-4 h-4" />
-                  </motion.a>
                 </div>
               </div>
             </motion.div>

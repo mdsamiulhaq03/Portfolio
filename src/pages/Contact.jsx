@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { CONTACT_INFO } from "@/config/contact";
+import RotatingEarth from "@/components/ui/wireframe-dotted-globe";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -99,7 +100,7 @@ const Contact = () => {
         transition={{ duration: 0.8 }}
       >
         <motion.div
-          className="flex items-center gap-3 mb-8 sm:mb-12"
+          className="flex items-center gap-3 mb-6"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -110,6 +111,8 @@ const Contact = () => {
           </h2>
         </motion.div>
 
+        <RotatingEarth width={900} height={380} className="w-full mb-8" />
+
         <div className="grid lg:grid-cols-[1fr,1.5fr] gap-8 sm:gap-12">
           {/* Left Column */}
           <div className="space-y-6 sm:space-y-8">
@@ -117,47 +120,38 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-gray-800/50 p-5 sm:p-6 rounded-xl backdrop-blur-sm"
+              className="flex flex-col border border-white/10 rounded-lg overflow-hidden"
             >
-              <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">
-                Contact Information
-              </h3>
-              <div className="space-y-3 sm:space-y-4">
+              <div className="flex items-center gap-3 px-5 py-4 border-b border-white/10 bg-white/5">
+                <h3 className="text-xs font-semibold text-white/80 uppercase tracking-widest">
+                  Contact Information
+                </h3>
+              </div>
+              <div className="divide-y divide-white/[0.07]">
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={info.label}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    className="group"
                   >
                     {info.link ? (
                       <a
                         href={info.link}
-                        className="flex items-center space-x-3 p-2 sm:p-3 rounded-lg hover:bg-white/5 transition-colors"
+                        className="flex items-center gap-3 px-5 py-3 text-white/40 hover:text-white hover:bg-white/[0.03] transition-colors group"
                       >
-                        <div className="text-gray-400 group-hover:text-white transition-colors">
-                          {info.icon}
-                        </div>
+                        <span className="flex-shrink-0">{info.icon}</span>
                         <div>
-                          <p className="text-xs sm:text-sm text-gray-400">
-                            {info.label}
-                          </p>
-                          <p className="text-sm sm:text-base text-white">
-                            {info.value}
-                          </p>
+                          <p className="text-xs text-white/30 uppercase tracking-widest">{info.label}</p>
+                          <p className="text-sm text-white/60 group-hover:text-white transition-colors">{info.value}</p>
                         </div>
                       </a>
                     ) : (
-                      <div className="flex items-center space-x-3 p-2 sm:p-3">
-                        <div className="text-gray-400">{info.icon}</div>
+                      <div className="flex items-center gap-3 px-5 py-3 text-white/40">
+                        <span className="flex-shrink-0">{info.icon}</span>
                         <div>
-                          <p className="text-xs sm:text-sm text-gray-400">
-                            {info.label}
-                          </p>
-                          <p className="text-sm sm:text-base text-white">
-                            {info.value}
-                          </p>
+                          <p className="text-xs text-white/30 uppercase tracking-widest">{info.label}</p>
+                          <p className="text-sm text-white/60">{info.value}</p>
                         </div>
                       </div>
                     )}
@@ -170,12 +164,14 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-gray-800/50 p-5 sm:p-6 rounded-xl backdrop-blur-sm"
+              className="flex flex-col border border-white/10 rounded-lg overflow-hidden"
             >
-              <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">
-                Connect with Me
-              </h3>
-              <div className="flex flex-wrap gap-3 sm:gap-4">
+              <div className="flex items-center gap-3 px-5 py-4 border-b border-white/10 bg-white/5">
+                <h3 className="text-xs font-semibold text-white/80 uppercase tracking-widest">
+                  Connect with Me
+                </h3>
+              </div>
+              <div className="divide-y divide-white/[0.07]">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}
@@ -185,14 +181,10 @@ const Contact = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                    className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors group flex-1 sm:flex-none justify-center sm:justify-start"
+                    className="flex items-center gap-3 px-5 py-3 text-white/40 hover:text-white hover:bg-white/[0.03] transition-colors"
                   >
-                    <span className="text-gray-400 group-hover:text-white transition-colors">
-                      {social.icon}
-                    </span>
-                    <span className="text-gray-400 group-hover:text-white transition-colors text-sm">
-                      {social.label}
-                    </span>
+                    {social.icon}
+                    <span className="text-sm">{social.label}</span>
                   </motion.a>
                 ))}
               </div>
@@ -204,93 +196,76 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-gray-800/50 p-6 sm:p-8 rounded-xl backdrop-blur-sm"
+            className="flex flex-col border border-white/10 rounded-lg overflow-hidden"
           >
-            <h3 className="text-lg sm:text-xl font-semibold mb-6">
-              Send a Message
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
-              <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-white/10 bg-white/5">
+              <h3 className="text-xs font-semibold text-white/80 uppercase tracking-widest">
+                Send a Message
+              </h3>
+            </div>
+
+            <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-5">
+              <div className="grid md:grid-cols-2 gap-5">
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-2"
-                  >
+                  <label htmlFor="name" className="block text-xs font-medium text-white/40 uppercase tracking-widest mb-2">
                     Name
                   </label>
                   <input
                     type="text"
                     id="name"
                     required
-                    className="w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 focus:border-white/20 focus:ring-1 focus:ring-white/20 outline-none transition-colors text-sm sm:text-base"
+                    className="w-full px-4 py-2.5 rounded-md bg-white/[0.03] border border-white/10 focus:border-white/20 focus:ring-1 focus:ring-white/10 outline-none transition-colors text-sm text-white/80"
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2"
-                  >
+                  <label htmlFor="email" className="block text-xs font-medium text-white/40 uppercase tracking-widest mb-2">
                     Email
                   </label>
                   <input
                     type="email"
                     id="email"
                     required
-                    className="w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 focus:border-white/20 focus:ring-1 focus:ring-white/20 outline-none transition-colors text-sm sm:text-base"
+                    className="w-full px-4 py-2.5 rounded-md bg-white/[0.03] border border-white/10 focus:border-white/20 focus:ring-1 focus:ring-white/10 outline-none transition-colors text-sm text-white/80"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
                 </div>
               </div>
 
               <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label htmlFor="subject" className="block text-xs font-medium text-white/40 uppercase tracking-widest mb-2">
                   Subject
                 </label>
                 <input
                   type="text"
                   id="subject"
                   required
-                  className="w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 focus:border-white/20 focus:ring-1 focus:ring-white/20 outline-none transition-colors text-sm sm:text-base"
+                  className="w-full px-4 py-2.5 rounded-md bg-white/[0.03] border border-white/10 focus:border-white/20 focus:ring-1 focus:ring-white/10 outline-none transition-colors text-sm text-white/80"
                   value={formData.subject}
-                  onChange={(e) =>
-                    setFormData({ ...formData, subject: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label htmlFor="message" className="block text-xs font-medium text-white/40 uppercase tracking-widest mb-2">
                   Message
                 </label>
                 <textarea
                   id="message"
                   rows={6}
                   required
-                  className="w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 focus:border-white/20 focus:ring-1 focus:ring-white/20 outline-none transition-colors resize-none text-sm sm:text-base"
+                  className="w-full px-4 py-2.5 rounded-md bg-white/[0.03] border border-white/10 focus:border-white/20 focus:ring-1 focus:ring-white/10 outline-none transition-colors resize-none text-sm text-white/80"
                   value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+                className="w-full px-6 py-2.5 border border-white/20 hover:border-white/40 hover:bg-white/5 rounded-md text-sm font-medium text-white/70 hover:text-white transition-colors flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   "Sending..."
@@ -306,7 +281,7 @@ const Contact = () => {
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-green-400 text-center text-sm sm:text-base"
+                  className="text-green-400/70 text-center text-sm border border-green-400/20 rounded-md py-2"
                 >
                   Message sent successfully! I'll get back to you soon.
                 </motion.p>
@@ -316,7 +291,7 @@ const Contact = () => {
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-red-400 text-center text-sm sm:text-base"
+                  className="text-red-400/70 text-center text-sm border border-red-400/20 rounded-md py-2"
                 >
                   Something went wrong. Please try again.
                 </motion.p>

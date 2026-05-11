@@ -50,7 +50,7 @@ const About = () => {
       <div className="grid md:grid-cols-2 gap-8">
         {/* Profile Image */}
         <ScrollAnimation>
-          <div className="aspect-square overflow-hidden rounded-2xl">
+          <div className="aspect-square overflow-hidden rounded-lg border border-white/10">
             <img
               src={profileImg}
               alt="MD Samiul Haque"
@@ -87,25 +87,24 @@ const About = () => {
 
             {/* Quick Facts */}
             <div className="pt-4">
-              <h3 className="text-2xl font-semibold mb-4 gradient-text">
+              <h3 className="text-xs font-semibold text-white/80 uppercase tracking-widest mb-4">
                 Quick Facts
               </h3>
-
-              <ul className="space-y-3">
+              <div className="flex flex-col border border-white/10 rounded-lg overflow-hidden">
                 {[
                   "Based in Bangladesh",
                   "BSc in Computer Science",
                   "CGPA: 3.56",
-                ].map((fact) => (
-                  <li
+                ].map((fact, i, arr) => (
+                  <div
                     key={fact}
-                    className="flex items-center gap-2 text-gray-300"
+                    className={`flex items-center gap-3 px-4 py-3 text-sm text-white/50 hover:text-white hover:bg-white/5 transition-colors ${i < arr.length - 1 ? "border-b border-white/[0.07]" : ""}`}
                   >
-                    <span className="w-2 h-2 bg-white rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-white/30 rounded-full flex-shrink-0" />
                     {fact}
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
             {/* Buttons */}
@@ -132,17 +131,21 @@ const About = () => {
       {/* Achievements */}
       <ScrollAnimation>
         <div className="mt-16">
-          <h3 className="text-2xl font-semibold mb-8 gradient-text">
+          <h3 className="text-xs font-semibold text-white/80 uppercase tracking-widest mb-6">
             Achievements
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4">
             {achievements.map((item) => (
               <ScrollAnimation key={item.title}>
-                <div className="bg-white/5 p-6 rounded-xl backdrop-blur-sm hover:bg-white/10 transition">
-                  <item.icon className="w-6 h-6 text-white mb-4" />
-                  <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
-                  <p className="text-gray-400">{item.description}</p>
+                <div className="flex flex-col border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-colors duration-200">
+                  <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10 bg-white/5">
+                    <item.icon className="w-4 h-4 text-white/60" />
+                    <h4 className="text-sm font-semibold text-white/80 uppercase tracking-widest">{item.title}</h4>
+                  </div>
+                  <div className="px-4 py-3">
+                    <p className="text-sm text-white/40">{item.description}</p>
+                  </div>
                 </div>
               </ScrollAnimation>
             ))}
@@ -153,16 +156,16 @@ const About = () => {
       {/* Interests */}
       <ScrollAnimation>
         <div className="mt-16">
-          <h3 className="text-2xl font-semibold mb-8 gradient-text">
+          <h3 className="text-xs font-semibold text-white/80 uppercase tracking-widest mb-6">
             Areas of Interest
           </h3>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {interests.map((interest) => (
               <ScrollAnimation key={interest}>
-                <div className="bg-white/5 p-4 rounded-xl backdrop-blur-sm flex items-center gap-3 hover:bg-white/10 transition">
-                  <Globe className="w-5 h-5 text-gray-400" />
-                  <span className="text-gray-300">{interest}</span>
+                <div className="flex items-center gap-3 px-4 py-3 border border-white/10 rounded-lg hover:border-white/20 hover:bg-white/5 transition-colors duration-200 text-white/40 hover:text-white">
+                  <Globe className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-sm font-medium">{interest}</span>
                 </div>
               </ScrollAnimation>
             ))}

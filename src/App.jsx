@@ -1,6 +1,5 @@
 import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import Background3D from "./components/Background3D";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
@@ -104,8 +103,7 @@ function App() {
     <BrowserRouter>
       <SEOUpdater />
       <div className="min-h-screen flex flex-col">
-        <Background3D />
-        <Navbar />
+<Navbar />
         <main className="flex-grow">
           <Suspense fallback={<Loading />}>
             <Routes>
