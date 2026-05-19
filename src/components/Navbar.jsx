@@ -26,7 +26,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link
@@ -51,7 +51,7 @@ const Navbar = () => {
                 }
                 className={`cursor-target px-3 py-1.5 text-base uppercase tracking-widest rounded transition-colors duration-150 ${
                   location.pathname === link.path
-                    ? "border border-white/10 bg-white/5 text-white/80"
+                    ? "text-white border-b border-white/50"
                     : "text-white/30 hover:text-white"
                 }`}
               >
@@ -98,7 +98,7 @@ const Navbar = () => {
                 }
                 className={`flex items-center px-5 py-3 text-base uppercase tracking-widest transition-colors ${
                   location.pathname === link.path
-                    ? "bg-white/5 text-white/80"
+                    ? "text-white bg-white/5"
                     : "text-white/30 hover:text-white hover:bg-white/[0.03]"
                 }`}
               >

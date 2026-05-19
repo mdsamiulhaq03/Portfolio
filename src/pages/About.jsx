@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Code2, Briefcase, GraduationCap, Globe } from "lucide-react";
+import { Code2, Briefcase, GraduationCap, Globe, User } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 import ProfileCard from "@/components/ProfileCard";
 import profileImg from "@/assets/profile/profile.jpg";
@@ -10,8 +10,8 @@ const About = () => {
   const achievements = [
     {
       icon: Code2,
-      title: "5+ Projects",
-      description: "Completed full-stack web applications",
+      title: "5 Projects",
+      description: "Shipped full-stack web applications",
     },
     {
       icon: Briefcase,
@@ -38,13 +38,14 @@ const About = () => {
     <div className="min-h-screen pt-20 px-4 max-w-4xl mx-auto pb-20">
       {/* Title */}
       <ScrollAnimation>
-        <motion.h2
-          className="text-4xl font-bold mb-8 gradient-text"
+        <motion.div
+          className="flex items-center gap-3 mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          About Me
-        </motion.h2>
+          <User className="w-7 h-7 sm:w-8 sm:h-8" />
+          <h2 className="text-3xl sm:text-4xl font-bold gradient-text">About Me</h2>
+        </motion.div>
       </ScrollAnimation>
 
       {/* Main Section */}

@@ -122,11 +122,6 @@ export const ReduxLogo = () => (
   </svg>
 );
 
-export const AxiosLogo = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.146 4.5l3.75 7.5H8.104l3.75-7.5zM5.25 9.75h3l-3 9.75-3-9.75h3zm13.5 0h3l-3 9.75-3-9.75h3zm-6.75 1.5h.146l3.604 7.5H8.25l3.75-7.5z" />
-  </svg>
-);
 
 export const ExpressLogo = () => (
   <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">

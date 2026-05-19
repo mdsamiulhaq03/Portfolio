@@ -9,7 +9,10 @@
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "Bash(git push *)",
-      "Bash(git commit -m 'fix: correct case of Dp.png import for Linux case-sensitive filesystem *)"
+      "Bash(git commit -m 'fix: correct case of Dp.png import for Linux case-sensitive filesystem *)",
+      "Bash(bash *)",
+      "Bash(node -c src/components/ScrollToTop.jsx)",
+      "Bash(Find \"E:\\\\Personal-portfolio-main\\\\Personal-portfolio-main\\\\src\" -name \"*.jsx\" -o -name \"*.js\")"
     ]
   }
 }

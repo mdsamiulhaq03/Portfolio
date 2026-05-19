@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { lazy, Suspense } from "react";
 import {
   Mail,
   Phone,
@@ -12,7 +13,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { CONTACT_INFO } from "@/config/contact";
-import RotatingEarth from "@/components/ui/wireframe-dotted-globe";
+const RotatingEarth = lazy(() => import("@/components/ui/wireframe-dotted-globe"));
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -111,7 +112,9 @@ const Contact = () => {
           </h2>
         </motion.div>
 
-        <RotatingEarth width={900} height={280} className="hidden sm:block w-full mb-8" />
+        <Suspense fallback={null}>
+          <RotatingEarth width={900} height={280} className="hidden sm:block w-full mb-8" />
+        </Suspense>
 
         <div className="grid lg:grid-cols-[1fr,1.5fr] gap-8 sm:gap-12">
           {/* Left Column */}

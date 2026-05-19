@@ -97,7 +97,7 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
             >
               <VariableProximity
-                label="I design & code for web"
+                label="Full Stack Developer · MERN · Next.js · TypeScript"
                 fromFontVariationSettings="'wght' 400, 'opsz' 9"
                 toFontVariationSettings="'wght' 900, 'opsz' 40"
                 containerRef={heroRef}
@@ -113,7 +113,7 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <VariableProximity
-                label="Software Developer specializing in Full Stack Development with expertise in React.js, Node.js and modern Web Technologies."
+                label="BSc Computer Science graduate building production-ready web apps. 5 shipped projects, 1 internship, actively seeking full-time roles."
                 fromFontVariationSettings="'wght' 300, 'opsz' 9"
                 toFontVariationSettings="'wght' 700, 'opsz' 40"
                 containerRef={heroRef}

@@ -5,7 +5,6 @@ import {
   Database,
   MessageSquare,
   Brain,
-  Cloud,
   Terminal,
   Wrench,
   Users,
@@ -29,22 +28,15 @@ import {
   ExpressLogo,
   BcryptLogo,
   JWTLogo,
-  AWSLogo,
-  RenderLogo,
-  PostmanLogo,
-  BashLogo,
   WindowsLogo,
   UbuntuLogo,
   LinuxLogo,
-  CppLogo,
   Html5,
   Css3,
   Bootstrap,
-  MySQL,
   Firebase,
   SQLite,
   Android,
-  MachineLearning,
   PyTorchLogo,
   TensorFlow,
   KerasLogo,
@@ -57,66 +49,86 @@ import {
   Appwrite,
 } from "@/components/TechLogos";
 
+const DOTS = {
+  strong:      [1, 1, 1],
+  comfortable: [1, 1, 0],
+  familiar:    [1, 0, 0],
+};
+
+function ProficiencyDots({ level }) {
+  if (!level) return null;
+  return (
+    <div className="flex gap-[3px] ml-auto flex-shrink-0">
+      {DOTS[level].map((filled, i) => (
+        <span
+          key={i}
+          className={`block w-1.5 h-1.5 rounded-full ${filled ? "bg-white/70" : "bg-white/15"}`}
+        />
+      ))}
+    </div>
+  );
+}
+
 const skills = [
   {
     category: "Programming Languages",
     icon: <Code2 className="w-6 h-6" />,
     items: [
-      { name: "JavaScript", icon: <JavaScriptLogo /> },
-      { name: "TypeScript", icon: <TypeScriptLogo /> },
-      { name: "Python", icon: <PythonLogo /> },
-      { name: "HTML5", icon: <Html5 /> },
-      { name: "CSS", icon: <Css3 /> },
+      { name: "JavaScript", icon: <JavaScriptLogo />, level: "strong" },
+      { name: "TypeScript", icon: <TypeScriptLogo />, level: "comfortable" },
+      { name: "Python", icon: <PythonLogo />, level: "comfortable" },
+      { name: "HTML5", icon: <Html5 />, level: "strong" },
+      { name: "CSS", icon: <Css3 />, level: "strong" },
     ],
   },
   {
     category: "Front-End Development",
     icon: <Layout className="w-6 h-6" />,
     items: [
-      { name: "React.js", icon: <ReactLogo /> },
-      { name: "Next.js", icon: <NextjsLogo /> },
-      { name: "Tailwind", icon: <TailwindLogo /> },
-      { name: "Redux", icon: <ReduxLogo /> },
-      { name: "Bootstrap", icon: <Bootstrap /> },
+      { name: "React.js", icon: <ReactLogo />, level: "strong" },
+      { name: "Next.js", icon: <NextjsLogo />, level: "comfortable" },
+      { name: "Tailwind", icon: <TailwindLogo />, level: "strong" },
+      { name: "Redux", icon: <ReduxLogo />, level: "comfortable" },
+      { name: "Bootstrap", icon: <Bootstrap />, level: "comfortable" },
     ],
   },
   {
     category: "Back-End Development",
     icon: <Server className="w-6 h-6" />,
     items: [
-      { name: "Node.js", icon: <NodeLogo /> },
-      { name: "Express", icon: <ExpressLogo /> },
-      { name: "JWT", icon: <JWTLogo /> },
-      { name: "Bcrypt", icon: <BcryptLogo /> },
+      { name: "Node.js", icon: <NodeLogo />, level: "strong" },
+      { name: "Express", icon: <ExpressLogo />, level: "strong" },
+      { name: "JWT", icon: <JWTLogo />, level: "strong" },
+      { name: "Bcrypt", icon: <BcryptLogo />, level: "comfortable" },
     ],
   },
   {
     category: "Databases & Cloud Storage",
     icon: <Database className="w-6 h-6" />,
     items: [
-      { name: "MongoDB", icon: <MongoDBLogo /> },
-      { name: "Appwrite", icon: <Appwrite /> },
-      { name: "Firebase", icon: <Firebase /> },
-      { name: "SQLite", icon: <SQLite /> },
+      { name: "MongoDB", icon: <MongoDBLogo />, level: "strong" },
+      { name: "Appwrite", icon: <Appwrite />, level: "comfortable" },
+      { name: "Firebase", icon: <Firebase />, level: "comfortable" },
+      { name: "SQLite", icon: <SQLite />, level: "familiar" },
     ],
   },
   {
     category: "Version Control & DevOps",
     icon: <GitLogo />,
     items: [
-      { name: "Git", icon: <GitLogo /> },
-      { name: "GitHub", icon: <GitHub /> },
-      { name: "Vercel", icon: <VercelLogo /> },
+      { name: "Git", icon: <GitLogo />, level: "strong" },
+      { name: "GitHub", icon: <GitHub />, level: "strong" },
+      { name: "Vercel", icon: <VercelLogo />, level: "comfortable" },
     ],
   },
   {
     category: "Tools & Platforms",
     icon: <Wrench className="w-6 h-6" />,
     items: [
-      { name: "VS Code", icon: <VSCodeLogo /> },
-      { name: "Git Desktop", icon: <GitLogo /> },
-      { name: "Figma", icon: <Figma /> },
-      { name: "Jupyter", icon: <Jupyter /> },
+      { name: "VS Code", icon: <VSCodeLogo />, level: "strong" },
+      { name: "Git Desktop", icon: <GitLogo />, level: "comfortable" },
+      { name: "Figma", icon: <Figma />, level: "comfortable" },
+      { name: "Jupyter", icon: <Jupyter />, level: "comfortable" },
     ],
   },
 
@@ -124,18 +136,18 @@ const skills = [
     category: "Machine Learning & Deep Learning",
     icon: <BrainCircuit className="w-6 h-6" />,
     items: [
-      { name: "PyTorch", icon: <PyTorchLogo /> },
-      { name: "TensorFlow", icon: <TensorFlow /> },
-      { name: "Keras", icon: <KerasLogo /> },
+      { name: "PyTorch", icon: <PyTorchLogo />, level: "familiar" },
+      { name: "TensorFlow", icon: <TensorFlow />, level: "familiar" },
+      { name: "Keras", icon: <KerasLogo />, level: "familiar" },
     ],
   },
   {
     category: "Data Analysis & Visualization",
     icon: <Eye className="w-6 h-6" />,
     items: [
-      { name: "Pandas", icon: <Pandas /> },
-      { name: "Numpy", icon: <Numpy /> },
-      { name: "Scikit-Learn", icon: <SkLearn /> },
+      { name: "Pandas", icon: <Pandas />, level: "comfortable" },
+      { name: "Numpy", icon: <Numpy />, level: "comfortable" },
+      { name: "Scikit-Learn", icon: <SkLearn />, level: "familiar" },
     ],
   },
 
@@ -143,10 +155,10 @@ const skills = [
     category: "Operating Systems",
     icon: <Terminal className="w-6 h-6" />,
     items: [
-      { name: "Windows", icon: <WindowsLogo className="w-4 h-4" /> },
-      { name: "Ubuntu", icon: <UbuntuLogo className="w-4 h-4" /> },
-      { name: "Linux", icon: <LinuxLogo className="w-4 h-4" /> },
-      { name: "Android", icon: <Android className="w-4 h-4" /> },
+      { name: "Windows", icon: <WindowsLogo className="w-4 h-4" />, level: "strong" },
+      { name: "Ubuntu", icon: <UbuntuLogo className="w-4 h-4" />, level: "comfortable" },
+      { name: "Linux", icon: <LinuxLogo className="w-4 h-4" />, level: "comfortable" },
+      { name: "Android", icon: <Android className="w-4 h-4" />, level: "familiar" },
     ],
   },
   {
@@ -164,9 +176,10 @@ const Skills = () => {
   return (
     <div className="min-h-screen pt-20 px-4 max-w-6xl mx-auto pb-20">
       <ScrollAnimation>
-        <h2 className="text-4xl font-bold mb-4 gradient-text">
-          Technical Skills
-        </h2>
+        <div className="flex items-center gap-3 mb-4">
+          <Code2 className="w-7 h-7 sm:w-8 sm:h-8" />
+          <h2 className="text-3xl sm:text-4xl font-bold gradient-text">Technical Skills</h2>
+        </div>
       </ScrollAnimation>
 
       <ScrollAnimation>
@@ -175,6 +188,20 @@ const Skills = () => {
           with
         </p>
       </ScrollAnimation>
+
+      {/* Proficiency legend */}
+      <div className="flex items-center gap-5 mb-8 px-1">
+        {[
+          { level: "strong", label: "Strong" },
+          { level: "comfortable", label: "Comfortable" },
+          { level: "familiar", label: "Familiar" },
+        ].map(({ level, label }) => (
+          <div key={level} className="flex items-center gap-2">
+            <ProficiencyDots level={level} />
+            <span className="text-xs text-white/30 uppercase tracking-widest">{label}</span>
+          </div>
+        ))}
+      </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {skills.map((skillGroup) => (
@@ -199,6 +226,7 @@ const Skills = () => {
                       {skill.icon}
                     </span>
                     <span className="text-xs font-medium">{skill.name}</span>
+                    <ProficiencyDots level={skill.level} />
                   </div>
                 ))}
               </div>

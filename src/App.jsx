@@ -1,9 +1,11 @@
 import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import TargetCursor from "./components/TargetCursor";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -25,7 +27,7 @@ const pageMeta = {
   "/about": {
     title: "About - MD Samiul Haque | Full Stack Developer",
     description:
-      "Learn about MD Samiul Haque — BSc Computer Science graduate, Full Stack Developer with 3+ internships and 10+ projects. Based in Bogura, Bangladesh.",
+      "Learn about MD Samiul Haque — BSc Computer Science graduate, Full Stack Developer with 1 internship and 5 shipped projects. Based in Bogura, Bangladesh.",
   },
   "/projects": {
     title: "Projects - MD Samiul Haque | Full Stack Developer Portfolio",
@@ -40,7 +42,7 @@ const pageMeta = {
   "/experience": {
     title: "Experience - MD Samiul Haque | Full Stack Developer",
     description:
-      "Professional experience of MD Samiul Haque including 3+ internships in full stack web development.",
+      "Professional experience of MD Samiul Haque — Product Researcher at Práce BD, automating data workflows with Python.",
   },
   "/education": {
     title: "Education - MD Samiul Haque | BSc Computer Science",
@@ -81,22 +83,40 @@ function SEOUpdater() {
     const ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute("content", meta.description);
 
+    const pageUrl = `https://portfolio-five-rosy-pzsm9uct65.vercel.app${location.pathname}`;
+
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl)
-      ogUrl.setAttribute(
-        "content",
-        `https://portfolio-five-rosy-pzsm9uct65.vercel.app${location.pathname}`,
-      );
+    if (ogUrl) ogUrl.setAttribute("content", pageUrl);
 
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical)
-      canonical.setAttribute(
-        "href",
-        `https://portfolio-five-rosy-pzsm9uct65.vercel.app${location.pathname}`,
-      );
+    if (canonical) canonical.setAttribute("href", pageUrl);
+
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.setAttribute("content", meta.title);
+
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDesc) twitterDesc.setAttribute("content", meta.description);
   }, [location]);
 
   return null;
+}
+
+// Component to wrap routes with fade transition on route change
+function PageWrapper({ children }) {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
 }
 
 function App() {
@@ -107,20 +127,23 @@ function App() {
       <div className="min-h-screen flex flex-col">
 <Navbar />
         <main className="flex-grow">
-          <Suspense fallback={<Loading />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/education" element={<Education />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/certificates" element={<Certificates />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
+          <PageWrapper>
+            <Suspense fallback={<Loading />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/education" element={<Education />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/certificates" element={<Certificates />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </PageWrapper>
         </main>
+        <ScrollToTop />
         <Footer />
       </div>
     </BrowserRouter>
