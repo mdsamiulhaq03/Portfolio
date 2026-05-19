@@ -5,9 +5,27 @@ import FlavorBot from "@/assets/projects_img/FlavorBot.png";
 import CineScope from "@/assets/projects_img/CineScope.png";
 import CVAnalyzer from "@/assets/projects_img/CVAnalyzer.png";
 import HawaSomachar from "@/assets/projects_img/HawaSmachar.png";
+import Jotion from "@/assets/projects_img/Jotion.png";
 
 
 const projects = [
+  {
+  title: "Jotion - Job & Internship Tracker",
+  description:
+    "A Notion-style job and internship application tracker built with Next.js, MongoDB, and NextAuth. Includes secure authentication, application status tracking, and a minimal, productivity-focused UI.",
+  image: Jotion, 
+  github: "https://github.com/mdsamiulhaq03/job-tracker",
+  live: "https://jotion-thejobtracker.vercel.app", 
+  tags: [
+    "Next.js",
+    "TypeScript",
+    "MongoDB",
+    "NextAuth",
+    "Tailwind",
+    "Shadcn/UI",
+  ],
+  liveStatus: true, 
+},
     {
 title: "CVAnalyzer AI",
 description:

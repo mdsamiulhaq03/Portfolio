@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(npm install *)",
-      "Bash(del *)"
+      "Bash(del *)",
+      "Bash(Remove-Item *)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/framer-motion/package.json'\\).version\\)\")",
+      "Bash(npm uninstall *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git commit -m 'fix: correct case of Dp.png import for Linux case-sensitive filesystem *)"
     ]
   }
 }
