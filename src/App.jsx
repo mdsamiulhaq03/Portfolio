@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
+import TargetCursor from "./components/TargetCursor";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -102,6 +103,7 @@ function App() {
   return (
     <BrowserRouter>
       <SEOUpdater />
+      <TargetCursor spinDuration={2} hideDefaultCursor={true} parallaxOn={true} />
       <div className="min-h-screen flex flex-col">
 <Navbar />
         <main className="flex-grow">

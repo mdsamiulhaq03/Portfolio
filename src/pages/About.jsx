@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Code2, Briefcase, GraduationCap, Globe } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
+import ProfileCard from "@/components/ProfileCard";
 import profileImg from "@/assets/profile/profile.jpg";
 import cvPdf from "@/assets/files/cv_pdf/Samiul_Haque_CV.pdf";
 
@@ -47,14 +48,20 @@ const About = () => {
       </ScrollAnimation>
 
       {/* Main Section */}
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Profile Image */}
+      <div className="grid md:grid-cols-2 gap-8 items-start">
+        {/* Profile Card */}
         <ScrollAnimation>
-          <div className="aspect-square overflow-hidden rounded-lg border border-white/10">
-            <img
-              src={profileImg}
-              alt="MD Samiul Haque"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          <div className="flex justify-center">
+            <ProfileCard
+              avatarUrl={profileImg}
+              name=""
+              title=""
+              showUserInfo={false}
+              enableTilt={true}
+              behindGlowEnabled={true}
+              behindGlowColor="rgba(125, 190, 255, 0.5)"
+              innerGradient="linear-gradient(145deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 100%)"
+              maxHeight={420}
             />
           </div>
         </ScrollAnimation>
@@ -108,18 +115,18 @@ const About = () => {
             </div>
 
             {/* Buttons */}
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-4">
               <a
                 href={cvPdf}
                 download
-                className="px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-100 transition-colors"
+                className="cursor-target px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-100 transition-colors"
               >
                 Download CV
               </a>
 
               <Link
                 to="/skills"
-                className="px-6 py-3 bg-white/10 text-white rounded-full font-medium hover:bg-white/20 transition-colors"
+                className="cursor-target px-6 py-3 bg-white/10 text-white rounded-full font-medium hover:bg-white/20 transition-colors"
               >
                 My Skills
               </Link>
@@ -135,7 +142,7 @@ const About = () => {
             Achievements
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-3 gap-4">
             {achievements.map((item) => (
               <ScrollAnimation key={item.title}>
                 <div className="flex flex-col border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-colors duration-200">

@@ -53,7 +53,7 @@ const Footer = () => {
           <div className="py-10 md:pr-10">
             <Link
               to="/"
-              className="inline-flex items-center gap-2.5 text-white/70 hover:text-white transition-colors mb-4"
+              className="cursor-target inline-flex items-center gap-2.5 text-white/70 hover:text-white transition-colors mb-4"
             >
               <Code2 className="w-4 h-4" aria-hidden="true" />
               <span className="text-xs font-semibold uppercase tracking-widest">
@@ -76,7 +76,7 @@ const Footer = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="py-1.5 text-xs text-white/30 hover:text-white transition-colors uppercase tracking-widest"
+                  className="cursor-target py-1.5 text-xs text-white/30 hover:text-white transition-colors uppercase tracking-widest"
                 >
                   {link.name}
                 </Link>
@@ -97,7 +97,7 @@ const Footer = () => {
                   target={s.href.startsWith("http") ? "_blank" : undefined}
                   rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={s.label}
-                  className={`flex items-center gap-3 px-4 py-2.5 text-white/30 hover:text-white hover:bg-white/[0.03] transition-colors ${
+                  className={`cursor-target flex items-center gap-3 px-4 py-2.5 text-white/30 hover:text-white hover:bg-white/[0.03] transition-colors ${
                     i < socials.length - 1 ? "border-b border-white/[0.07]" : ""
                   }`}
                 >

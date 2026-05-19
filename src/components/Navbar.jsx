@@ -49,7 +49,7 @@ const Navbar = () => {
                 aria-current={
                   location.pathname === link.path ? "page" : undefined
                 }
-                className={`px-3 py-1.5 text-base uppercase tracking-widest rounded transition-colors duration-150 ${
+                className={`cursor-target px-3 py-1.5 text-base uppercase tracking-widest rounded transition-colors duration-150 ${
                   location.pathname === link.path
                     ? "border border-white/10 bg-white/5 text-white/80"
                     : "text-white/30 hover:text-white"

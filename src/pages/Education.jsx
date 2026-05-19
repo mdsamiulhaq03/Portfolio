@@ -104,15 +104,15 @@ const Education = () => {
               className="flex flex-col border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-colors duration-200"
             >
               {/* Header */}
-              <div className="flex items-center justify-between gap-4 px-5 py-4 border-b border-white/10 bg-white/5">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-4 px-5 py-4 border-b border-white/10 bg-white/5">
                 <div className="flex items-center gap-3">
                   <GraduationCap className="w-4 h-4 text-white/40 flex-shrink-0" />
                   <h3 className="text-sm font-semibold text-white/80 uppercase tracking-widest">
                     {edu.school}
                   </h3>
                 </div>
-                <div className="flex items-center gap-1.5 text-white/30 text-xs flex-shrink-0">
-                  <Calendar className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-1.5 text-white/30 text-xs pl-7 sm:pl-0">
+                  <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
                   <span>{edu.duration}</span>
                 </div>
               </div>
@@ -174,7 +174,7 @@ const Education = () => {
                         href={edu.resultUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white/40 hover:text-white border border-white/10 hover:border-white/20 rounded-md transition-colors"
+                        className="cursor-target inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white/40 hover:text-white border border-white/10 hover:border-white/20 rounded-md transition-colors"
                         whileHover={{ scale: 1.02 }}
                       >
                         View Result

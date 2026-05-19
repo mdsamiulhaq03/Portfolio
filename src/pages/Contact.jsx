@@ -111,7 +111,7 @@ const Contact = () => {
           </h2>
         </motion.div>
 
-        <RotatingEarth width={900} height={380} className="w-full mb-8" />
+        <RotatingEarth width={900} height={280} className="hidden sm:block w-full mb-8" />
 
         <div className="grid lg:grid-cols-[1fr,1.5fr] gap-8 sm:gap-12">
           {/* Left Column */}
@@ -205,7 +205,7 @@ const Contact = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-5">
-              <div className="grid md:grid-cols-2 gap-5">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="name" className="block text-xs font-medium text-white/40 uppercase tracking-widest mb-2">
                     Name
@@ -265,7 +265,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-2.5 border border-white/20 hover:border-white/40 hover:bg-white/5 rounded-md text-sm font-medium text-white/70 hover:text-white transition-colors flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+                className="cursor-target w-full px-6 py-2.5 border border-white/20 hover:border-white/40 hover:bg-white/5 rounded-md text-sm font-medium text-white/70 hover:text-white transition-colors flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   "Sending..."

@@ -10,17 +10,20 @@ import {
   User,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import useSWR from "swr";
 import cvPdf from "@/assets/files/cv_pdf/Samiul_Haque_CV.pdf";
 import { CONTACT_INFO } from "@/config/contact";
-import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
+import TextPressure from "@/components/TextPressure";
+import VariableProximity from "@/components/VariableProximity";
+import profileDp from "@/assets/profile/dp.png";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Home = () => {
   const [copied, setCopied] = useState(false);
+  const heroRef = useRef(null);
   const email = CONTACT_INFO.email;
   const whatsappNumber = CONTACT_INFO.whatsapp.replace(/\D/g, "");
 
@@ -59,39 +62,65 @@ const Home = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="relative w-full max-w-7xl mx-auto" style={{ height: "calc(100vh - 80px)" }}>
+      <div className="relative w-full max-w-4xl mx-auto md:h-[calc(100vh-80px)]">
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
-        <div className="flex flex-col md:flex-row h-full">
-          {/* Left — hero content */}
-          <div className="flex-1 flex flex-col justify-center px-10 py-10 relative z-10">
-            <motion.h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 tracking-tighter"
+        <div ref={heroRef} className="flex flex-col md:flex-row items-center justify-between h-full gap-10 py-10 relative z-10">
+
+          {/* Left — text content */}
+          <div className="flex-1 flex flex-col justify-center">
+            {/* Name — TextPressure */}
+            <motion.div
+              className="w-full mb-2"
+              style={{ height: '120px' }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              MD Samiul Haque
-            </motion.h1>
+              <TextPressure
+                text="MD Samiul Haque"
+                flex={true}
+                alpha={false}
+                stroke={false}
+                width={true}
+                weight={true}
+                italic={true}
+                textColor="#ffffff"
+                minFontSize={28}
+              />
+            </motion.div>
 
-            <motion.h2
-              className="text-xl sm:text-2xl lg:text-3xl font-bold text-white/50 mb-5 tracking-tighter"
+            <motion.div
+              className="text-xl sm:text-2xl font-bold text-white/50 mb-4 tracking-tighter"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              I design & code for web
-            </motion.h2>
+              <VariableProximity
+                label="I design & code for web"
+                fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                toFontVariationSettings="'wght' 900, 'opsz' 40"
+                containerRef={heroRef}
+                radius={150}
+                falloff="linear"
+              />
+            </motion.div>
 
-            <motion.p
+            <motion.div
               className="text-sm text-white/40 mb-8 max-w-sm leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Software Developer specializing in Full Stack Development with
-              expertise in React.js, Node.js and modern Web Technologies.
-            </motion.p>
+              <VariableProximity
+                label="Software Developer specializing in Full Stack Development with expertise in React.js, Node.js and modern Web Technologies."
+                fromFontVariationSettings="'wght' 300, 'opsz' 9"
+                toFontVariationSettings="'wght' 700, 'opsz' 40"
+                containerRef={heroRef}
+                radius={120}
+                falloff="gaussian"
+              />
+            </motion.div>
 
             <motion.div
               className="flex flex-col gap-4"
@@ -105,14 +134,14 @@ const Home = () => {
                   href={cvPdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 border border-white/20 hover:border-white/40 hover:bg-white/5 rounded text-xs uppercase tracking-widest text-white/60 hover:text-white transition-colors"
+                  className="cursor-target flex items-center gap-2 px-4 py-2 border border-white/20 hover:border-white/40 hover:bg-white/5 rounded text-xs uppercase tracking-widest text-white/60 hover:text-white transition-colors"
                 >
                   <FileDown className="w-3.5 h-3.5" aria-hidden="true" />
                   Download CV
                 </a>
                 <Link
                   to="/about"
-                  className="flex items-center gap-2 px-4 py-2 border border-white/10 hover:border-white/20 hover:bg-white/5 rounded text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                  className="cursor-target flex items-center gap-2 px-4 py-2 border border-white/10 hover:border-white/20 hover:bg-white/5 rounded text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors"
                 >
                   <User className="w-3.5 h-3.5" aria-hidden="true" />
                   About Me
@@ -153,7 +182,7 @@ const Home = () => {
                   href="https://github.com/mdsamiulhaq03"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-1.5 px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
+                  className="cursor-target flex flex-col items-center gap-1.5 px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
                   whileHover={{ y: -1 }}
                   aria-label="Visit GitHub profile"
                 >
@@ -168,7 +197,7 @@ const Home = () => {
                   href="https://www.linkedin.com/in/md-samiul-haq/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-1.5 px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
+                  className="cursor-target flex flex-col items-center gap-1.5 px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
                   whileHover={{ y: -1 }}
                   aria-label="Visit LinkedIn profile"
                 >
@@ -183,7 +212,7 @@ const Home = () => {
                   href={`https://wa.me/${whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-1.5 px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
+                  className="cursor-target flex flex-col items-center gap-1.5 px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
                   whileHover={{ y: -1 }}
                   aria-label="Contact via WhatsApp"
                 >
@@ -197,13 +226,40 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Right — Spline 3D scene */}
-          <div className="flex-1 relative min-h-[400px] md:min-h-0">
-            <SplineScene
-              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full h-full"
-            />
-          </div>
+          {/* Right — profile photo */}
+          <motion.div
+            className="hidden md:flex flex-shrink-0 items-center justify-center"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="relative w-72 h-72 lg:w-80 lg:h-80">
+              {/* Pulsing glow */}
+              <motion.div
+                className="absolute -inset-2 rounded-full"
+                style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)' }}
+                animate={{ scale: [1, 1.06, 1], opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              {/* Rotating gradient ring */}
+              <motion.div
+                className="absolute -inset-[3px] rounded-full"
+                style={{
+                  background: 'conic-gradient(from 0deg, transparent 0%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.1) 75%, transparent 100%)',
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+              />
+              {/* Photo */}
+              <div className="absolute inset-0 rounded-full overflow-hidden">
+                <img
+                  src={profileDp}
+                  alt="MD Samiul Haque"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

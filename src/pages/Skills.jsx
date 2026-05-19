@@ -176,7 +176,7 @@ const Skills = () => {
         </p>
       </ScrollAnimation>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {skills.map((skillGroup) => (
           <ScrollAnimation key={skillGroup.category}>
             <div className="flex flex-col border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-colors duration-200">

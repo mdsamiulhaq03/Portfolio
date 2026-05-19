@@ -61,7 +61,7 @@ const Projects = () => {
         </h2>
       </ScrollAnimation>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((project) => (
           <ScrollAnimation key={project.title}>
             <div className="group flex flex-col h-full border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-colors duration-200">
@@ -112,7 +112,7 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/20 px-3 py-1.5 rounded-md transition-colors"
+                    className="cursor-target flex items-center gap-1.5 text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/20 px-3 py-1.5 rounded-md transition-colors"
                   >
                     <Github className="w-3 h-3" />
                     Code
@@ -121,7 +121,7 @@ const Projects = () => {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/20 px-3 py-1.5 rounded-md transition-colors"
+                    className="cursor-target flex items-center gap-1.5 text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/20 px-3 py-1.5 rounded-md transition-colors"
                   >
                     <ExternalLink className="w-3 h-3" />
                     Live
