@@ -17,7 +17,7 @@ import { CONTACT_INFO } from "@/config/contact";
 import { Spotlight } from "@/components/ui/spotlight";
 import TextPressure from "@/components/TextPressure";
 import VariableProximity from "@/components/VariableProximity";
-import profileDp from "@/assets/profile/dp.png";
+import profileDp from "@/assets/profile/Dp.png";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
