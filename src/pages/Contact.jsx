@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { lazy, Suspense } from "react";
 import {
   Mail,
   Phone,
@@ -13,7 +12,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { CONTACT_INFO } from "@/config/contact";
-const RotatingEarth = lazy(() => import("@/components/ui/wireframe-dotted-globe"));
+import RotatingEarth from "@/components/ui/wireframe-dotted-globe";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,32 +21,15 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState("idle"); // 'idle' | 'success' | 'error'
+  const [submitStatus, setSubmitStatus] = useState("idle");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
+    const { name, email, subject, message } = formData;
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    window.location.href = `mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSubmitStatus("success");
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   const contactInfo = [
@@ -112,9 +94,7 @@ const Contact = () => {
           </h2>
         </motion.div>
 
-        <Suspense fallback={null}>
-          <RotatingEarth width={900} height={280} className="hidden sm:block w-full mb-8" />
-        </Suspense>
+        <RotatingEarth width={900} height={280} className="hidden sm:block w-full mb-8" />
 
         <div className="grid lg:grid-cols-[1fr,1.5fr] gap-8 sm:gap-12">
           {/* Left Column */}
@@ -267,17 +247,10 @@ const Contact = () => {
 
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="cursor-target w-full px-6 py-2.5 border border-white/20 hover:border-white/40 hover:bg-white/5 rounded-md text-sm font-medium text-white/70 hover:text-white transition-colors flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+                className="cursor-target w-full px-6 py-2.5 border border-white/20 hover:border-white/40 hover:bg-white/5 rounded-md text-sm font-medium text-white/70 hover:text-white transition-colors flex items-center justify-center gap-2"
               >
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    Send Message
-                  </>
-                )}
+                <Send className="w-4 h-4" />
+                Send Message
               </button>
 
               {submitStatus === "success" && (

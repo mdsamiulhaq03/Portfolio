@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./components/Navbar";
@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import TargetCursor from "./components/TargetCursor";
 import ScrollToTop from "./components/ScrollToTop";
+import IntroAnimation from "./components/IntroAnimation";
+import PageTransition from "./components/PageTransition";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -101,7 +103,6 @@ function SEOUpdater() {
   return null;
 }
 
-// Component to wrap routes with fade transition on route change
 function PageWrapper({ children }) {
   const location = useLocation();
   return (
@@ -120,8 +121,19 @@ function PageWrapper({ children }) {
 }
 
 function App() {
+  const [introDone, setIntroDone] = useState(
+    () => sessionStorage.getItem("intro_played") === "1"
+  );
+
+  const handleIntroComplete = () => {
+    sessionStorage.setItem("intro_played", "1");
+    setIntroDone(true);
+  };
+
   return (
     <BrowserRouter>
+      {!introDone && <IntroAnimation onComplete={handleIntroComplete} />}
+      <PageTransition />
       <SEOUpdater />
       <TargetCursor spinDuration={2} hideDefaultCursor={true} parallaxOn={true} />
       <div className="min-h-screen flex flex-col">
