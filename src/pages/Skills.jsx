@@ -36,6 +36,7 @@ import {
   Bootstrap,
   Firebase,
   SQLite,
+  MySQL,
   Android,
   PyTorchLogo,
   TensorFlow,
@@ -107,6 +108,7 @@ const skills = [
     icon: <Database className="w-6 h-6" />,
     items: [
       { name: "MongoDB", icon: <MongoDBLogo />, level: "strong" },
+      { name: "MySQL", icon: <MySQL />, level: "comfortable" },
       { name: "Appwrite", icon: <Appwrite />, level: "comfortable" },
       { name: "Firebase", icon: <Firebase />, level: "comfortable" },
       { name: "SQLite", icon: <SQLite />, level: "familiar" },
@@ -119,6 +121,7 @@ const skills = [
       { name: "Git", icon: <GitLogo />, level: "strong" },
       { name: "GitHub", icon: <GitHub />, level: "strong" },
       { name: "Vercel", icon: <VercelLogo />, level: "comfortable" },
+      { name: "GitHub Actions", icon: <GitHub />, level: "comfortable" },
     ],
   },
   {
@@ -136,9 +139,9 @@ const skills = [
     category: "Machine Learning & Deep Learning",
     icon: <BrainCircuit className="w-6 h-6" />,
     items: [
-      { name: "PyTorch", icon: <PyTorchLogo />, level: "familiar" },
-      { name: "TensorFlow", icon: <TensorFlow />, level: "familiar" },
-      { name: "Keras", icon: <KerasLogo />, level: "familiar" },
+      { name: "PyTorch", icon: <PyTorchLogo />, level: "comfortable" },
+      { name: "TensorFlow", icon: <TensorFlow />, level: "comfortable" },
+      { name: "Keras", icon: <KerasLogo />, level: "comfortable" },
     ],
   },
   {
