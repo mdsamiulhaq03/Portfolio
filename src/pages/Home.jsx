@@ -75,10 +75,46 @@ const Home = () => {
       <div className="relative w-full max-w-4xl mx-auto md:h-[calc(100vh-80px)]">
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
-        <div ref={heroRef} className="flex flex-col md:flex-row items-center justify-between h-full gap-10 py-10 relative z-10">
+        <div ref={heroRef} className="flex flex-col md:flex-row items-center justify-between h-full gap-6 md:gap-10 py-8 md:py-10 relative z-10">
+
+          {/* Mobile profile photo — hidden on md+ */}
+          <motion.div
+            className="flex md:hidden flex-shrink-0 items-center justify-center mt-10"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="relative w-28 h-28">
+              <div
+                className="absolute -inset-4 rounded-full"
+                style={{ background: 'radial-gradient(circle, rgba(20,20,30,0.9) 40%, transparent 75%)' }}
+              />
+              <motion.div
+                className="absolute -inset-1 rounded-full"
+                style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%)' }}
+                animate={{ scale: [1, 1.06, 1], opacity: [0.5, 0.9, 0.5] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <motion.div
+                className="absolute -inset-[2px] rounded-full"
+                style={{
+                  background: 'conic-gradient(from 0deg, transparent 0%, rgba(255,255,255,0.08) 25%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.08) 75%, transparent 100%)',
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
+              />
+              <div className="absolute inset-0 rounded-full overflow-hidden">
+                <img
+                  src={profileDp}
+                  alt="MD Samiul Haque"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+          </motion.div>
 
           {/* Left — text content */}
-          <div className="flex-1 flex flex-col justify-center">
+          <div className="flex-1 flex flex-col justify-center w-full min-w-0">
             {/* Name — TextPressure */}
             <motion.div
               className="w-full mb-2"
@@ -139,7 +175,7 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               {/* CTA buttons */}
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 <a
                   href={cvPdf}
                   target="_blank"
@@ -168,13 +204,13 @@ const Home = () => {
               {/* Email copy */}
               <button
                 onClick={handleEmailClick}
-                className="group flex items-center gap-2 px-4 py-2 border border-white/10 hover:border-white/20 hover:bg-white/5 rounded transition-colors cursor-copy sm:cursor-pointer w-fit"
+                className="group flex items-center gap-2 px-4 py-2 border border-white/10 hover:border-white/20 hover:bg-white/5 rounded transition-colors cursor-copy sm:cursor-pointer max-w-full overflow-hidden"
                 aria-label={`Email: ${email}`}
               >
-                <div className="w-3 text-white/20 group-hover:text-white/50 transition-colors">
+                <div className="w-3 flex-shrink-0 text-white/20 group-hover:text-white/50 transition-colors">
                   <VercelLogo />
                 </div>
-                <span className="text-xs text-white/30 group-hover:text-white/70 transition-colors font-mono">
+                <span className="text-xs text-white/30 group-hover:text-white/70 transition-colors font-mono truncate min-w-0">
                   {email}
                 </span>
                 <div className="ml-1 hidden sm:block text-white/20 group-hover:text-white/50 transition-colors">
@@ -194,12 +230,12 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <div className="flex border border-white/10 rounded-lg overflow-hidden divide-x divide-white/[0.07] w-fit">
+              <div className="flex border border-white/10 rounded-lg overflow-hidden divide-x divide-white/[0.07] w-full sm:w-fit">
                 <motion.a
                   href="https://github.com/mdsamiulhaq03"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-target flex flex-col items-center gap-1.5 px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
+                  className="cursor-target flex flex-col items-center gap-1.5 px-4 sm:px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
                   whileHover={{ y: -1 }}
                   aria-label="Visit GitHub profile"
                 >
@@ -214,7 +250,7 @@ const Home = () => {
                   href="https://www.linkedin.com/in/md-samiul-haq/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-target flex flex-col items-center gap-1.5 px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
+                  className="cursor-target flex flex-col items-center gap-1.5 px-4 sm:px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
                   whileHover={{ y: -1 }}
                   aria-label="Visit LinkedIn profile"
                 >
@@ -229,7 +265,7 @@ const Home = () => {
                   href={`https://wa.me/${whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-target flex flex-col items-center gap-1.5 px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
+                  className="cursor-target flex flex-col items-center gap-1.5 px-4 sm:px-6 py-3 text-white/30 hover:text-white hover:bg-white/5 transition-colors group"
                   whileHover={{ y: -1 }}
                   aria-label="Contact via WhatsApp"
                 >

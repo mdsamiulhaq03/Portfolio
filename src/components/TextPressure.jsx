@@ -71,6 +71,8 @@ const TextPressure = ({
     const { width: containerW, height: containerH } = containerRef.current.getBoundingClientRect();
     let newFontSize = containerW / (chars.length / 2);
     newFontSize = Math.max(newFontSize, minFontSize);
+    // Prevent overflow on narrow (mobile) containers
+    if (containerW < 480) newFontSize = Math.min(newFontSize, containerW / (chars.length * 0.62));
     setFontSize(newFontSize);
     setScaleY(1);
     setLineHeight(1);
