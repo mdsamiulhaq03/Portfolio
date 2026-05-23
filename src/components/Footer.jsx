@@ -16,6 +16,7 @@ const Footer = () => {
         { name: "Skills", path: "/skills" },
         { name: "Projects", path: "/projects" },
         { name: "Certificates", path: "/certificates" },
+        { name: "Research", path: "/research" },
         { name: "Contact", path: "/contact" },
       ],
     },
@@ -61,8 +62,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-xs text-white/30 leading-relaxed max-w-xs">
-              Full Stack Developer based in Bogura, Bangladesh. Building
-              modern web experiences with React, Node.js and beyond.
+              Full Stack Developer & ML Researcher based in Bogura, Bangladesh. Building AI-powered apps and modern web experiences.
             </p>
           </div>
 
