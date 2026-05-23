@@ -15,13 +15,13 @@ const About = () => {
     },
     {
       icon: Briefcase,
-      title: "1 Internship",
-      description: "Professional work experience",
+      title: "1 Paper Published",
+      description: "UCICS 2025 international conference",
     },
     {
       icon: GraduationCap,
       title: "3.56 CGPA",
-      description: "Academic excellence",
+      description: "BSc Computer Science, Varendra University",
     },
   ];
 
@@ -72,24 +72,15 @@ const About = () => {
           <div className="space-y-6">
             <div className="space-y-4">
               <p className="text-gray-300 leading-relaxed">
-                Hi! I'm a passionate full-stack developer with expertise in
-                building modern web applications. My journey in tech started
-                during my college years, where I discovered my love for creating
-                innovative solutions through code.
+                I'm a full-stack developer and ML researcher based in Bogura, Bangladesh. I have a paper published at UCICS 2025 on transfer learning for brain tumor detection and hyperspectral imaging, and end-to-end experience in ML pipelines from MRI classification to pixel-level segmentation.
               </p>
 
               <p className="text-gray-300 leading-relaxed">
-                I completed my BSc in Computer Science, maintaining a strong
-                academic record while actively engaging in real-world projects
-                and internships. This blend of theoretical knowledge and
-                practical experience has shaped my approach to problem-solving
-                and software development.
+                On the web side I build production-grade applications with React, Next.js, Node.js, and TypeScript — from AI-powered tools to real-time data apps. I graduated with a BSc in Computer Science (CGPA 3.56) from Varendra University and currently work as a Research Officer at Práce BD.
               </p>
 
               <p className="text-gray-300 leading-relaxed">
-                I specialize in HTML, CSS, JavaScript, React, Node.js, and
-                modern web technologies, with a keen interest in building
-                performant and user-friendly applications.
+                I care about clean UI, fast shipping, and writing code that is easy to reason about. Open to full-time roles in web engineering or ML engineering.
               </p>
             </div>
 
@@ -100,9 +91,10 @@ const About = () => {
               </h3>
               <div className="flex flex-col border border-white/10 rounded-lg overflow-hidden">
                 {[
-                  "Based in Bangladesh",
-                  "BSc in Computer Science",
-                  "CGPA: 3.56",
+                  "Based in Bogura, Bangladesh",
+                  "BSc Computer Science, Varendra University — CGPA 3.56",
+                  "Research published at UCICS 2025",
+                  "Research Officer @ Práce BD",
                 ].map((fact, i, arr) => (
                   <div
                     key={fact}
