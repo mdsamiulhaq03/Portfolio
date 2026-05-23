@@ -107,7 +107,7 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
             >
               <VariableProximity
-                label="Full Stack Developer · MERN · Next.js · TypeScript"
+                label="Full Stack Developer · ML Researcher · Next.js · TypeScript"
                 fromFontVariationSettings="'wght' 400, 'opsz' 9"
                 toFontVariationSettings="'wght' 900, 'opsz' 40"
                 containerRef={heroRef}
@@ -123,7 +123,7 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <VariableProximity
-                label="BSc Computer Science graduate building production-ready web apps. 5 shipped projects, 1 internship, actively seeking full-time roles."
+                label="Full-stack developer & ML researcher with a paper published at UCICS 2025. Builds AI-powered apps with React, Next.js, Node.js and Python. Actively seeking full-time roles."
                 fromFontVariationSettings="'wght' 300, 'opsz' 9"
                 toFontVariationSettings="'wght' 700, 'opsz' 40"
                 containerRef={heroRef}
@@ -310,7 +310,7 @@ const Home = () => {
                 </span>
               </motion.div>
 
-              {/* Node.js — left middle */}
+              {/* PyTorch — left middle */}
               <motion.div
                 className="absolute top-1/2 -translate-y-1/2 -left-14"
                 animate={{ y: [0, 8, 0] }}
@@ -324,11 +324,11 @@ const Home = () => {
                   color: 'rgba(255,255,255,0.75)', letterSpacing: '0.03em', whiteSpace: 'nowrap',
                   boxShadow: '0 0 10px rgba(255,255,255,0.06)',
                 }}>
-                  {/* Node.js official hexagon badge logo */}
+                  {/* PyTorch flame logo */}
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="rgba(255,255,255,0.75)" style={{flexShrink:0}}>
-                    <path d="M12 1.85c-.27 0-.55.07-.78.2L3.78 6.65c-.48.28-.78.79-.78 1.33v8.04c0 .54.3 1.05.78 1.33l7.44 4.3c.23.13.5.2.78.2s.55-.07.78-.2l7.44-4.3c.48-.28.78-.79.78-1.33V7.98c0-.54-.3-1.05-.78-1.33L12.78 2.05c-.23-.13-.5-.2-.78-.2zm0 1.9l6.8 3.93v7.64L12 19.25l-6.8-3.93V7.68L12 3.75z"/>
+                    <path d="M12.005 0L4.5 12.21a8.6 8.6 0 0 0-1.04 4.082C3.46 20.604 7.276 24 12.005 24c4.73 0 8.545-3.396 8.545-7.708a8.6 8.6 0 0 0-1.04-4.083zm0 4.442l5.357 9.274a5.13 5.13 0 0 1 .623 2.442c0 2.633-2.68 4.769-5.98 4.769-3.3 0-5.98-2.136-5.98-4.769a5.13 5.13 0 0 1 .623-2.442zM14.5 14a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
                   </svg>
-                  Node.js
+                  PyTorch
                 </span>
               </motion.div>
 
