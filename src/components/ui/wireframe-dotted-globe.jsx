@@ -8,8 +8,6 @@ import {
 import { timer } from "d3-timer";
 import worldData from "@/assets/data/world-land.json";
 
-// Pre-compute all land dots once at module level — runs only when the bundle
-// is first loaded, not on every component mount or re-render.
 const DOT_SPACING = 16;
 const STEP = DOT_SPACING * 0.08;
 
@@ -49,8 +47,10 @@ function pointInFeature(point, feature) {
   return false;
 }
 
-// Computed once, reused across all mounts
-const ALL_DOTS = (() => {
+let cachedDots = null;
+
+function computeDots() {
+  if (cachedDots) return cachedDots;
   const dots = [];
   for (const feature of worldData.features) {
     const [[minLng, minLat], [maxLng, maxLat]] = geoBounds(feature);
@@ -60,12 +60,23 @@ const ALL_DOTS = (() => {
       }
     }
   }
+  cachedDots = dots;
   return dots;
-})();
+}
 
 export default function RotatingEarth({ width = 800, height = 600, className = "" }) {
   const canvasRef = useRef(null);
   const visibleRef = useRef(true);
+  const dotsRef = useRef(cachedDots ?? []);
+
+  // Compute dots lazily after mount so the main thread isn't blocked on load
+  useEffect(() => {
+    if (cachedDots) return;
+    const id = setTimeout(() => {
+      dotsRef.current = computeDots();
+    }, 0);
+    return () => clearTimeout(id);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -120,7 +131,7 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
       context.lineWidth = 1 * sf;
       context.stroke();
 
-      for (const [lng, lat] of ALL_DOTS) {
+      for (const [lng, lat] of dotsRef.current) {
         const projected = projection([lng, lat]);
         if (
           projected &&
@@ -154,7 +165,6 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
       }
     });
 
-    // Initial render (dots already computed)
     render();
 
     const handleMouseDown = (event) => {

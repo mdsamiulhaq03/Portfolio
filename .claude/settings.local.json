@@ -21,7 +21,10 @@
       "Bash(npx playwright@latest *)",
       "Bash(curl -s \"https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json\" -o src/assets/data/world-land.json)",
       "Bash(git commit *)",
-      "Bash(npm i *)"
+      "Bash(npm i *)",
+      "Bash(Get-Item \"E:\\\\Personal-portfolio-main\\\\Personal-portfolio-main\\\\src\\\\assets\\\\data\\\\world-land.json\")",
+      "Bash(Select-Object Length, Name)",
+      "PowerShell(Get-ChildItem \"E:\\\\Personal-portfolio-main\\\\Personal-portfolio-main\\\\dist\\\\assets\" | Sort-Object Length -Descending | Select-Object -First 20 | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB,1\\)}})"
     ]
   }
 }

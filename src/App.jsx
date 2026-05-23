@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
+import ErrorBoundary from "./components/ErrorBoundary";
 import TargetCursor from "./components/TargetCursor";
 import ScrollToTop from "./components/ScrollToTop";
 import IntroAnimation from "./components/IntroAnimation";
@@ -147,6 +148,7 @@ function App() {
 <Navbar />
         <main className="flex-grow">
           <PageWrapper>
+            <ErrorBoundary>
             <Suspense fallback={<Loading />}>
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -161,6 +163,7 @@ function App() {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
+            </ErrorBoundary>
           </PageWrapper>
         </main>
         <ScrollToTop />
