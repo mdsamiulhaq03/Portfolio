@@ -17,49 +17,55 @@ const Skills = lazy(() => import("./pages/Skills"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Certificates = lazy(() => import("./pages/Certificates"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Research = lazy(() => import("./pages/Research"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Per-page SEO metadata
 const pageMeta = {
   "/": {
-    title: "MD Samiul Haque - Full Stack Developer | MERN Stack Expert",
+    title: "MD Samiul Haque — Full Stack Developer & ML Researcher",
     description:
-      "MD Samiul Haque — Full Stack Developer specializing in MERN stack, React.js, Node.js, Next.js and TypeScript. Based in Bogura, Bangladesh.",
+      "MD Samiul Haque — Full Stack Developer & ML Researcher. Paper published at UCICS 2025. Builds AI-powered apps with React, Next.js, Node.js, and Python. Based in Bogura, Bangladesh.",
   },
   "/about": {
-    title: "About - MD Samiul Haque | Full Stack Developer",
+    title: "About — MD Samiul Haque | Full Stack Developer & ML Researcher",
     description:
-      "Learn about MD Samiul Haque — BSc Computer Science graduate, Full Stack Developer with 1 internship and 5 shipped projects. Based in Bogura, Bangladesh.",
+      "Full-stack developer and ML researcher with a paper published at UCICS 2025 on brain tumor detection. BSc Computer Science, CGPA 3.56. Based in Bogura, Bangladesh.",
   },
   "/projects": {
-    title: "Projects - MD Samiul Haque | Full Stack Developer Portfolio",
+    title: "Projects — MD Samiul Haque | Full Stack Developer Portfolio",
     description:
-      "Explore full-stack web projects built by MD Samiul Haque using React.js, Node.js, MongoDB, Next.js and TypeScript.",
+      "Full-stack and AI-powered projects by MD Samiul Haque — CVAnalyzer AI, Hawa Somachar, Jotion, FlavorBot. Built with Next.js, React, TypeScript, and Groq LLM.",
   },
   "/skills": {
-    title: "Skills - MD Samiul Haque | React, Node.js, MERN Stack",
+    title: "Skills — MD Samiul Haque | React, Next.js, Python, PyTorch",
     description:
-      "Technical skills of MD Samiul Haque — React.js, Node.js, Express, MongoDB, Next.js, TypeScript, AWS, Docker and more.",
+      "Technical skills of MD Samiul Haque — React, Next.js, Node.js, TypeScript, Python, PyTorch, TensorFlow, MongoDB and more.",
   },
   "/experience": {
-    title: "Experience - MD Samiul Haque | Full Stack Developer",
+    title: "Experience — MD Samiul Haque | Research Officer",
     description:
-      "Professional experience of MD Samiul Haque — Product Researcher at Práce BD, automating data workflows with Python.",
+      "Professional experience of MD Samiul Haque — Research Officer at Práce BD, automating data workflows with Python and delivering analytical dashboards.",
   },
   "/education": {
-    title: "Education - MD Samiul Haque | BSc Computer Science",
+    title: "Education — MD Samiul Haque | BSc Computer Science",
     description:
-      "Educational background of MD Samiul Haque — BSc in Computer Science with 3.56 CGPA.",
+      "Educational background of MD Samiul Haque — BSc in Computer Science & Engineering, CGPA 3.56, Varendra University.",
   },
   "/certificates": {
-    title: "Certificates - MD Samiul Haque | Developer Certifications",
+    title: "Certificates — MD Samiul Haque | Developer Certifications",
     description:
-      "Professional certifications and achievements of MD Samiul Haque in web development and cloud technologies.",
+      "Professional certifications of MD Samiul Haque — TypeScript, JavaScript, and Python from Geekster and HackerRank.",
+  },
+  "/research": {
+    title: "Research — MD Samiul Haque | ML Researcher | UCICS 2025",
+    description:
+      "ML research by MD Samiul Haque — transfer learning for brain tumor detection published at UCICS 2025, VGG-16 / ResNet-50 achieving 97% accuracy on MRI classification.",
   },
   "/contact": {
-    title: "Contact - MD Samiul Haque | Hire a Full Stack Developer",
+    title: "Contact — MD Samiul Haque | Hire a Full Stack Developer",
     description:
-      "Get in touch with MD Samiul Haque for freelance projects, job opportunities or collaborations. Based in Bogura, Bangladesh.",
+      "Get in touch with MD Samiul Haque for full-time roles, freelance projects, or research collaborations. Based in Bogura, Bangladesh.",
   },
 };
 
@@ -69,9 +75,9 @@ function SEOUpdater() {
 
   useEffect(() => {
     const meta = pageMeta[location.pathname] || {
-      title: "MD Samiul Haque - Full Stack Developer",
+      title: "MD Samiul Haque — Full Stack Developer & ML Researcher",
       description:
-        "Portfolio of MD Samiul Haque — Full Stack Developer specializing in MERN stack and modern web technologies.",
+        "Portfolio of MD Samiul Haque — Full Stack Developer & ML Researcher specializing in React, Next.js, and AI-powered applications.",
     };
 
     document.title = meta.title;
@@ -149,6 +155,7 @@ function App() {
                 <Route path="/skills" element={<Skills />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/certificates" element={<Certificates />} />
+                <Route path="/research" element={<Research />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
