@@ -9,10 +9,10 @@ import { ScrollAnimation } from "@/components/ScrollAnimation";
 
 const experiences = [
   {
-    title: "Product Researcher",
+    title: "Research Officer",
     company: "Práce BD",
-    location: "OnSite-Rajshahi",
-    period: "Feb 2025 - Aug 2026",
+    location: "Rajshahi, Bangladesh",
+    period: "Feb 2025 – Present",
     type: "Part-Time",
     certificateUrl: null,
     description: [
