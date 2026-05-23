@@ -123,6 +123,7 @@ const Education = () => {
                   <img
                     src={edu.image}
                     alt={edu.school}
+                    loading="lazy"
                     className="w-full h-full object-cover brightness-50"
                   />
                   <div className="absolute inset-0 flex items-end p-5">

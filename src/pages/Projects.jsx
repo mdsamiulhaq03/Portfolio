@@ -156,6 +156,7 @@ const Projects = () => {
             <img
               src={featured.image}
               alt={featured.title}
+              loading="lazy"
               className="w-full h-56 object-cover brightness-75 group-hover:brightness-90 transition-all duration-200"
             />
             <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-white/5">
@@ -209,6 +210,7 @@ const Projects = () => {
               className="group flex flex-col h-full border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-colors duration-200"
             >
               <img src={project.image} alt={project.title}
+                loading="lazy"
                 className="w-full h-44 object-cover brightness-75 group-hover:brightness-90 transition-all duration-200" />
               <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-white/5">
                 <h3 className="text-sm font-semibold text-white/80 uppercase tracking-widest leading-snug">
