@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Code2, Briefcase, GraduationCap, Globe, User } from "lucide-react";
+import { Code2, BookOpen, GraduationCap, Globe, User } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 import ProfileCard from "@/components/ProfileCard";
 import profileImg from "@/assets/profile/profile.jpg";
@@ -14,7 +14,7 @@ const About = () => {
       description: "Shipped full-stack web applications",
     },
     {
-      icon: Briefcase,
+      icon: BookOpen,
       title: "1 Paper Published",
       description: "UCICS 2025 international conference",
     },

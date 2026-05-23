@@ -28,7 +28,7 @@ const Contact = () => {
     const { name, email, subject, message } = formData;
     const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
     window.location.href = `mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSubmitStatus("success");
+    setSubmitStatus("mailto");
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
@@ -253,23 +253,13 @@ const Contact = () => {
                 Send Message
               </button>
 
-              {submitStatus === "success" && (
+              {submitStatus === "mailto" && (
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-green-400/70 text-center text-sm border border-green-400/20 rounded-md py-2"
+                  className="text-white/50 text-center text-sm border border-white/10 rounded-md py-2"
                 >
-                  Message sent successfully! I'll get back to you soon.
-                </motion.p>
-              )}
-
-              {submitStatus === "error" && (
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-red-400/70 text-center text-sm border border-red-400/20 rounded-md py-2"
-                >
-                  Something went wrong. Please try again.
+                  Your mail client should have opened — send the message from there.
                 </motion.p>
               )}
             </form>

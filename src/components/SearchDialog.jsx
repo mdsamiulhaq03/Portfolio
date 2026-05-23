@@ -7,7 +7,7 @@ const searchData = [
     title: 'Home',
     description: 'Go to the welcome page',
     path: '/',
-    keywords: ['home', 'cv', 'resume', 'start', 'welcome', 'portfolio', 'samiul haq', 'samiul haque', 'samiul', 'haque', 'software developer', 'full stack developer', 'mern stack', 'web developer'],
+    keywords: ['home', 'cv', 'resume', 'start', 'welcome', 'portfolio', 'samiul haq', 'samiul haque', 'samiul', 'haque', 'full stack developer', 'ml researcher', 'web developer', 'ai developer'],
   },
   {
     title: 'About',
@@ -44,6 +44,12 @@ const searchData = [
     description: 'View my certifications and achievements',
     path: '/certificates',
     keywords: ['certificates', 'certifications', 'achievements', 'courses', 'learning', 'skills', 'professional', 'development', 'awards', 'badges'],
+  },
+  {
+    title: 'Research',
+    description: 'View my ML research and published papers',
+    path: '/research',
+    keywords: ['research', 'paper', 'publication', 'ml', 'ai', 'machine learning', 'deep learning', 'brain tumor', 'ucics', 'ucics 2025', 'transfer learning', 'cnn', 'pytorch', 'tensorflow', 'mri', 'hyperspectral'],
   },
   {
     title: 'Contact',

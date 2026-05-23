@@ -87,9 +87,9 @@ const skills = [
     icon: <Layout className="w-6 h-6" />,
     items: [
       { name: "React.js", icon: <ReactLogo />, level: "strong" },
-      { name: "Next.js", icon: <NextjsLogo />, level: "comfortable" },
+      { name: "Next.js", icon: <NextjsLogo />, level: "strong" },
       { name: "Tailwind", icon: <TailwindLogo />, level: "strong" },
-      { name: "Redux", icon: <ReduxLogo />, level: "comfortable" },
+      { name: "Redux", icon: <ReduxLogo />, level: "familiar" },
       { name: "Bootstrap", icon: <Bootstrap />, level: "comfortable" },
     ],
   },
@@ -97,9 +97,9 @@ const skills = [
     category: "Back-End Development",
     icon: <Server className="w-6 h-6" />,
     items: [
-      { name: "Node.js", icon: <NodeLogo />, level: "strong" },
-      { name: "Express", icon: <ExpressLogo />, level: "strong" },
-      { name: "JWT", icon: <JWTLogo />, level: "strong" },
+      { name: "Node.js", icon: <NodeLogo />, level: "familiar" },
+      { name: "Express", icon: <ExpressLogo />, level: "familiar" },
+      { name: "JWT", icon: <JWTLogo />, level: "comfortable" },
       { name: "Bcrypt", icon: <BcryptLogo />, level: "comfortable" },
     ],
   },
@@ -120,7 +120,7 @@ const skills = [
     items: [
       { name: "Git", icon: <GitLogo />, level: "strong" },
       { name: "GitHub", icon: <GitHub />, level: "strong" },
-      { name: "Vercel", icon: <VercelLogo />, level: "comfortable" },
+      { name: "Vercel", icon: <VercelLogo />, level: "strong" },
       { name: "GitHub Actions", icon: <GitHub />, level: "comfortable" },
     ],
   },
@@ -130,8 +130,8 @@ const skills = [
     items: [
       { name: "VS Code", icon: <VSCodeLogo />, level: "strong" },
       { name: "Git Desktop", icon: <GitLogo />, level: "comfortable" },
-      { name: "Figma", icon: <Figma />, level: "comfortable" },
-      { name: "Jupyter", icon: <Jupyter />, level: "comfortable" },
+      { name: "Figma", icon: <Figma />, level: "familiar" },
+      { name: "Jupyter", icon: <Jupyter />, level: "strong" },
     ],
   },
 
@@ -139,9 +139,9 @@ const skills = [
     category: "Machine Learning & Deep Learning",
     icon: <BrainCircuit className="w-6 h-6" />,
     items: [
-      { name: "PyTorch", icon: <PyTorchLogo />, level: "comfortable" },
-      { name: "TensorFlow", icon: <TensorFlow />, level: "comfortable" },
-      { name: "Keras", icon: <KerasLogo />, level: "comfortable" },
+      { name: "PyTorch", icon: <PyTorchLogo />, level: "strong" },
+      { name: "TensorFlow", icon: <TensorFlow />, level: "strong" },
+      { name: "Keras", icon: <KerasLogo />, level: "strong" },
     ],
   },
   {
@@ -161,7 +161,7 @@ const skills = [
       { name: "Windows", icon: <WindowsLogo className="w-4 h-4" />, level: "strong" },
       { name: "Ubuntu", icon: <UbuntuLogo className="w-4 h-4" />, level: "comfortable" },
       { name: "Linux", icon: <LinuxLogo className="w-4 h-4" />, level: "comfortable" },
-      { name: "Android", icon: <Android className="w-4 h-4" />, level: "familiar" },
+      { name: "Android", icon: <Android className="w-4 h-4" />, level: "comfortable" },
     ],
   },
   {

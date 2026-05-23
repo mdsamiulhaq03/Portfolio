@@ -12,7 +12,15 @@
       "Bash(git commit -m 'fix: correct case of Dp.png import for Linux case-sensitive filesystem *)",
       "Bash(bash *)",
       "Bash(node -c src/components/ScrollToTop.jsx)",
-      "Bash(Find \"E:\\\\Personal-portfolio-main\\\\Personal-portfolio-main\\\\src\" -name \"*.jsx\" -o -name \"*.js\")"
+      "Bash(Find \"E:\\\\Personal-portfolio-main\\\\Personal-portfolio-main\\\\src\" -name \"*.jsx\" -o -name \"*.js\")",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(npx playwright@latest screenshot --browser chromium --full-page http://localhost:5173 /tmp/home-screenshot.png)",
+      "Bash(npx playwright *)",
+      "Bash(node *)",
+      "Bash(npx playwright@latest *)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json\" -o src/assets/data/world-land.json)",
+      "Bash(git commit *)"
     ]
   }
 }
